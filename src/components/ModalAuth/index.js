@@ -11,31 +11,11 @@ import MenuUser from "../MenuUser/index";
 export const MODAL_LOGIN = 1;
 export const MODAL_SIGNUP = 2;
 
-export default function ModalAuth({children, isOpen}) {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [whichModal, setWhichModal] = useState(null);
-  const [userData, setUserData] = useState({
-    name: "",
-    email: "",
-    password: "",
-    gender:"",
-  });
-
-  const [userSignIn, setUserSignIn] = useState({
-    email: "",
-    password: "",
-    token: "",
-  });
-
-  const { signUp, signIn, jwtToken } = useSelector((state) => state.users);
-
-  const dispatch = useDispatch();
-
-  const token = localStorage.getItem("token");
-
-  let decoded;
-  if (token && !_.isEmpty(token)) decoded = jwt_decode(token);
-
+export default function ModalAuth({
+  children,
+  isOpen,
+  onRequestClose
+}) {
   return (
     <>
       <div className="main-container">
@@ -65,7 +45,7 @@ export default function ModalAuth({children, isOpen}) {
 
       <Modal
         isOpen={isOpen}
-        onRequestClose={() => setIsModalOpen(false)}
+        onRequestClose={onRequestClose}
         className="modal-container"
         overlayClassName="modal-overlay-center"
         contentLabel="Sign In"

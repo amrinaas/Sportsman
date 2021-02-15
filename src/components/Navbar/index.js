@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from "react";
 import _ from "lodash";
 import logo from "../../assets/Images/Logo.png";
-import ModalAuth from '../ModalAuth/index';
+// import ModalAuth from '../ModalAuth/index';
+import ModalSignUp from '../ModalAuth/signUp';
 
 function Navbar() {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpenSignIn, setIsModalOpenSignIn] = useState(false);
+  const [isModalOpenSignUp, setIsModalOpenSignUp] = useState(false);
+
   const [scrollY, setScrollY] = useState(0);
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -35,8 +39,9 @@ function Navbar() {
           </li>
         </ul>
       </div>
-      <button onClick={() => setIsModalOpen(true)} className="layout__button">Ready To Sweat?</button>
-      <ModalAuth isOpen={isModalOpen}/>
+      <button onClick={() => setIsModalOpenSignUp(true)} className="layout__button">Ready To Sweat?</button>
+      <ModalSignUp isOpen={isModalOpenSignUp} />
+      {/* <ModalAuth isOpen={isModalOpen}/> */}
     </nav>
   );
 }

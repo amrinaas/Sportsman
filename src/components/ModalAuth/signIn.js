@@ -33,31 +33,6 @@ export default function Modals({ children }) {
 
   return (
     <>
-      {/* <div className="main-container">
-        <div className="logo">
-          <a href="/">
-            <img src={logo} alt="" />
-          </a>
-        </div>
-        <div>
-          {decoded ? (
-            <MenuUser />
-          ) : (
-            <button
-              onClick={() => {
-                setIsModalOpen(true);
-                setWhichModal(MODAL_SIGNUP);
-              }}
-              className="navbar-button"
-            >
-              Sign Up
-            </button>
-          )}
-        </div>
-      </div> */}
-
-      <main>{children}</main>
-
       <Modal
         isOpen={isModalOpen}
         onRequestClose={() => setIsModalOpen(false)}
