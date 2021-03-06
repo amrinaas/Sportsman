@@ -1,9 +1,13 @@
 .sidebar-content {
-  width: 20%;
+  // width: 20%;
   height: 1100px;
-  padding-left: 20px;
-  margin-left: 10px;
-  background-color: orange;
+  // padding-left: 20px;
+  // margin-left: 10px;
+  background-color: rgb(255, 145, 0);
+
+  & i {
+    font-size: 20px;
+  }
 
   & .logo-admin {
     width: 250px;

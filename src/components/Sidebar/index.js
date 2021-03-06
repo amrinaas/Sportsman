@@ -1,6 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { ListGroup, ListGroupItem } from "reactstrap";
+import { Col, ListGroup, ListGroupItem } from "reactstrap";
 import logo from "../../assets/img/logo/orange.png";
 
 const Sidebar = () => {
@@ -10,7 +10,7 @@ const Sidebar = () => {
   };
   return (
     <>
-      <div className="sidebar-content">
+      <Col className="sidebar-content">
         <img onClick={handleClick} className="logo-admin" src={logo} alt="" />
         <ListGroup className="list-content">
           <ListGroupItem
@@ -31,7 +31,7 @@ const Sidebar = () => {
             <i className="fas fa-user-slash"></i> Remove User
           </ListGroupItem>
         </ListGroup>
-      </div>
+      </Col>
     </>
   );
 };

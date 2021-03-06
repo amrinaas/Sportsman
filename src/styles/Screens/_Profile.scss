@@ -17,10 +17,8 @@
       // margin: 0 20px;
       margin-left: 50px;
       width: 160px;
-
-
     }
-    &--selected button {     
+    &--selected button {
       margin: 10px 45px;
       border: 8px;
       background-color: transparent;
@@ -43,7 +41,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    >button {
+    > button {
       background-color: #dc3545;
       border: #dc3545;
       border-radius: 15px;
@@ -59,7 +57,7 @@
     align-items: center;
     width: 500px;
     margin-top: 140px;
-    >img {
+    > img {
       width: 160px;
       height: 160px;
       margin-right: 30px;
@@ -67,7 +65,7 @@
       clip-path: circle(50% at 50% 50%);
       cursor: pointer;
     }
-    >h1 {
+    > h1 {
       display: flex;
       align-items: center;
     }
@@ -76,22 +74,21 @@
     width: 80%;
     margin-left: 25px;
     display: flex;
-    box-shadow: 2px 4px 12px 1px rgba(140,140,140,0.75);
-    -webkit-box-shadow: 2px 4px 12px 1px rgba(140,140,140,0.75);
-    -moz-box-shadow: 2px 4px 12px 1px rgba(140,140,140,0.75);
+    box-shadow: 2px 4px 12px 1px rgba(140, 140, 140, 0.75);
+    -webkit-box-shadow: 2px 4px 12px 1px rgba(140, 140, 140, 0.75);
+    -moz-box-shadow: 2px 4px 12px 1px rgba(140, 140, 140, 0.75);
     background-clip: polygon(0% 0%, 0% 100%, 100% 0%) blue solid;
-
   }
   &__aside {
     width: 20%;
     padding-top: 40px;
-    box-shadow: 2px 4px 12px 1px rgba(140,140,140,0.75);
-    -webkit-box-shadow: 2px 4px 12px 1px rgba(140,140,140,0.75);
-    -moz-box-shadow: 2px 4px 12px 1px rgba(140,140,140,0.75);
-    >ul {
+    box-shadow: 2px 4px 12px 1px rgba(140, 140, 140, 0.75);
+    -webkit-box-shadow: 2px 4px 12px 1px rgba(140, 140, 140, 0.75);
+    -moz-box-shadow: 2px 4px 12px 1px rgba(140, 140, 140, 0.75);
+    > ul {
       padding-left: 0;
     }
-    >ul li {
+    > ul li {
       padding: 15px 0;
       margin-bottom: 15px;
       text-align: center;
@@ -101,13 +98,13 @@
   }
   &__edit {
     padding: 50px;
-    >div {
+    > div {
       display: flex;
       flex-direction: row;
       display: grid;
       grid-template-columns: 0.25fr 1fr;
     }
-    >tr td{
+    > tr td {
       padding-top: 30px;
     }
   }
@@ -147,6 +144,6 @@
   }
 }
 
-.fas{
+.fas {
   font-size: 48px;
 }
