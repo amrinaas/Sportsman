@@ -1,97 +1,113 @@
-import React, { useState, useEffect } from "react";
-import logo from "../../assets/img/logo/orange.png";
-import { useHistory } from "react-router-dom";
-import Headroom from "react-headroom";
-import _ from "lodash";
-import jwt_decode from "jwt-decode";
+import React, { useState, useEffect } from 'react';
+import logo from '../../assets/img/logo/orange.png';
+import img from '../../assets/img/anonymous.jpg';
+import { useHistory } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import Headroom from 'react-headroom';
+import _ from 'lodash';
+import { getUserData } from '../../redux/Action/userAction';
+import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
 const Navbar = () => {
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-  });
+	useEffect(() => {
+		window.addEventListener('scroll', handleScroll);
+	});
 
-  const [scrollY, setScrollY] = useState(0);
-  const handleScroll = () => {
-    setScrollY(window.scrollY);
-  };
+	const userProfile = useSelector((state) => state.users.userProfile);
+	const dispatch = useDispatch();
 
-  const history = useHistory();
+	const [scrollY, setScrollY] = useState(0);
+	const handleScroll = () => {
+		setScrollY(window.scrollY);
+	};
 
-  const page = window.location.pathname.substring(1);
-  console.log(page);
+	const [dropdownOpen, setOpen] = useState(false);
 
-  const handleHome = () => {
-    history.push("/");
-  };
+	const toggle = () => setOpen(!dropdownOpen);
+	const history = useHistory();
+	const image = useSelector((state) => state.users.uploadImg);
 
-  const handleSignIn = () => {
-    history.push("/login");
-  };
+	const page = window.location.pathname.substring(1);
+	console.log(page);
 
-  const handleFeature = () => {
-    history.push("/feature");
-  };
+	const handleHome = () => {
+		history.push('/');
+	};
 
-  const handleAbout = () => {
-    history.push("/about");
-  };
+	const handleSignIn = () => {
+		history.push('/login');
+	};
 
-  const handleContactUs = () => {
-    history.push("/contactus");
-  };
+	const handleFeature = () => {
+		history.push('/feature');
+	};
 
-  const handleProfile = () => {
-    history.push("/profile");
-    window.location.reload(true);
-  };
+	const handleAbout = () => {
+		history.push('/about');
+	};
 
-  const handleSignOut = () => {
-    localStorage.removeItem("token");
-    history.push("/");
-    window.location.reload(true);
-  };
-  const token = localStorage.getItem("token");
+	const handleContactUs = () => {
+		history.push('/contactus');
+	};
 
-  let decoded;
-  if (token && !_.isEmpty(token)) decoded = jwt_decode(token);
+	const handleProfile = () => {
+		history.push('/profile');
+		window.location.reload(true);
+	};
 
-  return (
-    <Headroom>
-      <header className={`header ${scrollY > 230 ? "layout--orange" : ""}`}>
-        <img src={logo} onClick={handleHome} alt="" className="layout__img" />
-        <input className="menu-btn" type="checkbox" id="menu-btn" />
-        <label
-          className="menu-icon"
-          htmlFor="menu-btn"
-          style={{ color: "white" }}
-        >
-          <span className="navicon"></span>
-        </label>
-        <ul className="menu">
-          <li onClick={handleFeature}>Feature</li>
-          <li onClick={handleAbout}>About</li>
-          <li onClick={handleContactUs}>Contact Us</li>
-          {token ? (
-            <div>
-              <li onClick={handleProfile} className="menu-item">
-                Welcome {decoded.name}!
-              </li>
-              <li onClick={handleSignOut} className="border-li">
-                Sign Out
-              </li>
-            </div>
-          ) : (
-            // <div>
-            // 	<p className='layout__button'>Welcome {decoded.name}!</p>
-            // </div>
-            <button onClick={handleSignIn} className="layout__button">
-              Login
-            </button>
-          )}
-        </ul>
-      </header>
-    </Headroom>
-  );
+	const handleSignOut = () => {
+		localStorage.removeItem('token');
+		history.push('/');
+		window.location.reload(true);
+	};
+
+	useEffect((res) => {
+		dispatch(getUserData());
+		console.log('ini userProfile', userProfile);
+		if (userProfile && userProfile.status === 200) {
+			localStorage.setItem('token', res.data.data);
+		}
+	}, []);
+
+	console.log('INI', userProfile);
+	return (
+		<Headroom>
+			<header className={`header ${scrollY > 230 ? 'layout--orange' : ''}`}>
+				<img src={logo} onClick={handleHome} alt='' className='layout__img' />
+				<input className='menu-btn' type='checkbox' id='menu-btn' />
+				<label className='menu-icon' htmlFor='menu-btn' style={{ color: 'white' }}>
+					<span className='navicon'></span>
+				</label>
+				<ul className='menu'>
+					<li onClick={handleFeature}>Feature</li>
+					<li onClick={handleAbout}>About</li>
+					<li onClick={handleContactUs}>Contact Us</li>
+					{userProfile ? (
+						<div>
+							<ButtonDropdown isOpen={dropdownOpen} toggle={toggle} style={{ marginTop: '5px' }}>
+								<DropdownToggle caret style={{ fontWeight: '500', backgroundColor: 'RGBA(255,255,255,0)', border: 'none' }}>
+									<img className='image-navbar' src={userProfile && userProfile.images ? userProfile.images : img} alt='' />
+									{/* <span>{userProfile && userProfile.name}</span> */}
+								</DropdownToggle>
+								<DropdownMenu>
+									{/* <DropdownItem header>Header</DropdownItem> */}
+									<DropdownItem onClick={handleProfile}>Profile</DropdownItem>
+									<DropdownItem>History Workout</DropdownItem>
+									<DropdownItem>Favorite Workout</DropdownItem>
+									<DropdownItem divider />
+									<DropdownItem onClick={handleSignOut}>Sign Out</DropdownItem>
+								</DropdownMenu>
+							</ButtonDropdown>
+						</div>
+					) : (
+						<button onClick={handleSignIn} className='layout__button'>
+							Login
+						</button>
+					)}
+				</ul>
+			</header>
+		</Headroom>
+	);
 };
 
 export default Navbar;
