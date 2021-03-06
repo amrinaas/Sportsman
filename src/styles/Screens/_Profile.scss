@@ -1,21 +1,17 @@
 .profile {
   &__picture {
-    margin-right: 31px;
-    position: relative;
-    right: 20px;
     > img {
-      width: 160px;
+      width: 130px;
+      height: 15vh;
+      border-radius: 50%;
       cursor: pointer;
-      margin-left: 50px;
     }
     &--selected {
       display: flex;
       flex-direction: column;
+      align-items: center;
     }
     &--selected img {
-      // width: 200px;
-      // margin: 0 20px;
-      margin-left: 50px;
       width: 160px;
     }
     &--selected button {
@@ -32,86 +28,53 @@
 }
 
 .back-page {
-  margin: 40px;
+  padding: 40px;
   display: flex;
+  justify-content: center;
 }
 
 .pr {
-  &__wrap {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    > button {
-      background-color: #dc3545;
-      border: #dc3545;
-      border-radius: 15px;
-      padding: 20px;
-      width: 200px;
-      margin: auto;
-      color: white;
-      font-weight: 600;
-    }
-  }
   &__dis {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    width: 500px;
-    margin-top: 140px;
-    > img {
-      width: 160px;
-      height: 160px;
-      margin-right: 30px;
-      margin-left: 40px;
-      clip-path: circle(50% at 50% 50%);
-      cursor: pointer;
-    }
-    > h1 {
-      display: flex;
-      align-items: center;
+    margin-top: 35px;
+    >h3 {
+      margin-top: 15px;
     }
   }
   &__main {
-    width: 80%;
-    margin-left: 25px;
+    width: 60%;
+    justify-content: center;
     display: flex;
-    box-shadow: 2px 4px 12px 1px rgba(140, 140, 140, 0.75);
-    -webkit-box-shadow: 2px 4px 12px 1px rgba(140, 140, 140, 0.75);
-    -moz-box-shadow: 2px 4px 12px 1px rgba(140, 140, 140, 0.75);
-    background-clip: polygon(0% 0%, 0% 100%, 100% 0%) blue solid;
+    background-color: white;
+    border: rgba(163, 161, 161, 0.884) 2px solid;
   }
   &__aside {
-    width: 20%;
-    padding-top: 40px;
-    box-shadow: 2px 4px 12px 1px rgba(140, 140, 140, 0.75);
-    -webkit-box-shadow: 2px 4px 12px 1px rgba(140, 140, 140, 0.75);
-    -moz-box-shadow: 2px 4px 12px 1px rgba(140, 140, 140, 0.75);
-    > ul {
+    width: 10%;
+    background-color: white;
+    border-left: rgba(163, 161, 161, 0.884) 2px solid;
+    border-top: rgba(163, 161, 161, 0.884) 2px solid;
+    border-bottom: rgba(163, 161, 161, 0.884) 2px solid;
+    >ul {
       padding-left: 0;
     }
-    > ul li {
-      padding: 15px 0;
+    >ul li {
       margin-bottom: 15px;
       text-align: center;
-      border-bottom: gray 1px solid;
-      cursor: pointer;
+      
     }
   }
   &__edit {
     padding: 50px;
-    > div {
-      display: flex;
-      flex-direction: row;
-      display: grid;
-      grid-template-columns: 0.25fr 1fr;
-    }
-    > tr td {
-      padding-top: 30px;
-    }
   }
   &__label {
     padding-right: 45px;
     padding-bottom: 20px;
     font-weight: 500;
+    > label span {
+      color: red;
+    }
   }
   &__input {
     border: none;
@@ -122,21 +85,30 @@
   &__gender {
     display: flex;
     justify-content: space-around;
+    padding-bottom: 10px;
     &__choose {
-      margin: 0 10px;
+      margin: 25px 10px;
       border: 2px solid grey;
       padding: 40px 50px;
       border-radius: 15px;
+      > input {
+        display: none;
+      }
+    }
+    &--active {
+      background-color: orchid;
     }
     &__choose:hover {
       background-color: rgba(242, 104, 49, 0.603);
     }
+  
+
   }
   &__button {
     margin: auto 200px;
     color: white;
     font-weight: 500;
-    margin-top: 15px;
+    margin-top: 55px;
     padding: 15px 40px;
     border: none;
     background-color: rgba(242, 105, 49, 1);
@@ -144,6 +116,50 @@
   }
 }
 
-.fas {
+.fas{
   font-size: 48px;
+}
+
+.button-delete {
+  background-color: #dc3545;
+  border-radius: 15px;
+  padding: 20px;
+  width: 200px;
+  color: white;
+  font-weight: 500;
+  border: none;
+}
+
+.detail__tab {
+  color: black;
+  display: flex;
+  &__td {
+    margin: 15px;
+  }
+  &--active {
+      font-weight: 600;
+      color: rgba(242, 105, 49, 1);
+      border-left: #262626b7 3px solid;
+  }
+}
+
+.detail__tab:hover {
+  border-left: #26262660 3px solid;
+  color: rgba(242, 105, 49, 1);
+}
+
+.image-password {
+  width: 130px;
+  height: 15vh;
+  border-radius: 50%;
+}
+
+.button-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  >p {
+    margin-top: 15px;
+    font-weight: 600;
+  }
 }
