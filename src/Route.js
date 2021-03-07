@@ -137,4 +137,9 @@ export const privateRoutes = [
 		path: '/history',
 		exact: true,
 	},
+	{
+		component: HistoryUser,
+		path: '/history',
+		exact: true,
+	},
 ];
