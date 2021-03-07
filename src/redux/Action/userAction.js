@@ -1,5 +1,6 @@
 import axios from "axios";
 import jwt_decode from "jwt-decode";
+import _ from "lodash";
 import {
   SIGN_IN,
   SIGN_UP,
@@ -121,9 +122,12 @@ export const signOut = () => (dispatch) => {
 // 	});
 // };
 
-export const uploadImage = (token, body) => (dispatch) => {
+export const uploadImage = (body) => (dispatch) => {
   const config = {
-    headers: { Authorization: token, "Content-Type": "multipart/form-data" },
+    headers: {
+      Authorization: localStorage.getItem("token"),
+      "Content-Type": "multipart/form-data",
+    },
   };
   axios
     .post(`api/upload`, body, config)
@@ -139,9 +143,9 @@ export const uploadImage = (token, body) => (dispatch) => {
     });
 };
 
-export const putUserData = (token, userData) => (dispatch) => {
+export const putUserData = (userData) => (dispatch) => {
   const config = {
-    headers: { Authorization: token },
+    headers: { Authorization: localStorage.getItem("token") },
   };
   axios
     .put(`api/update`, userData, config)
@@ -174,9 +178,9 @@ export const postContact = (token, body) => (dispatch) => {
     });
 };
 
-export const deleteAccount = (token) => async (dispatch) => {
+export const deleteAccount = () => async (dispatch) => {
   const config = {
-    headers: { Authorization: token },
+    headers: { Authorization: localStorage.getItem("token") },
   };
   axios.delete(`api/users/delete`, config).then((res) => {
     if (res === 200) {
@@ -188,22 +192,24 @@ export const deleteAccount = (token) => async (dispatch) => {
   });
 };
 
-export const getUserData = (token) => (dispatch) => {
+export const getUserData = () => (dispatch) => {
   const config = {
-    headers: { Authorization: token },
+    headers: { Authorization: localStorage.getItem("token") },
   };
   axios
     .get(`api/get`, config)
     .then((res) => {
       console.log("ini get user data RIRI", res);
-      if (res.status === 200) {
-        dispatch({
-          type: GET_USERDATA,
-          payload: res.data,
-        });
-      }
+      dispatch({
+        type: GET_USERDATA,
+        payload: res.data,
+      });
+      localStorage.setItem("token");
     })
     .catch((err) => {
       console.log(err);
     });
 };
+
+// let decoded;
+// if (token && !_.isEmpty(token)) decoded = jwt_decode(token);
