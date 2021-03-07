@@ -55,14 +55,10 @@
 .border-li {
   border: 3px solid white;
   border-radius: 8px;
-  //  height: 10px;
-  //  margin-top: 5px;
 }
 .header ul {
   margin: 0;
   padding: 0;
-  list-style: none;
-  overflow: hidden;
 }
 
 .header li {
@@ -216,4 +212,11 @@
       }
     }
   }
+}
+
+.image-navbar {
+  margin-right: 10px;
+  width: 35px;
+  height: 4vh;
+  border-radius: 50%;
 }

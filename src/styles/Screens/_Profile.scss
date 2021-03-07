@@ -39,7 +39,7 @@
     flex-direction: column;
     align-items: center;
     margin-top: 35px;
-    >h3 {
+    > h3 {
       margin-top: 15px;
     }
   }
@@ -56,13 +56,12 @@
     border-left: rgba(163, 161, 161, 0.884) 2px solid;
     border-top: rgba(163, 161, 161, 0.884) 2px solid;
     border-bottom: rgba(163, 161, 161, 0.884) 2px solid;
-    >ul {
+    > ul {
       padding-left: 0;
     }
-    >ul li {
+    > ul li {
       margin-bottom: 15px;
       text-align: center;
-      
     }
   }
   &__edit {
@@ -101,8 +100,6 @@
     &__choose:hover {
       background-color: rgba(242, 104, 49, 0.603);
     }
-  
-
   }
   &__button {
     margin: auto 200px;
@@ -116,7 +113,7 @@
   }
 }
 
-.fas{
+.fas {
   font-size: 48px;
 }
 
@@ -137,9 +134,9 @@
     margin: 15px;
   }
   &--active {
-      font-weight: 600;
-      color: rgba(242, 105, 49, 1);
-      border-left: #262626b7 3px solid;
+    font-weight: 600;
+    color: rgba(242, 105, 49, 1);
+    border-left: #262626b7 3px solid;
   }
 }
 
@@ -158,7 +155,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  >p {
+  > p {
     margin-top: 15px;
     font-weight: 600;
   }

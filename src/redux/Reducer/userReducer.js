@@ -10,6 +10,7 @@ import {
   GET_USERDATA,
   MESSAGE_ERROR,
   GOOGLE_AUTH,
+  DELETE_ACCOUNT,
 } from "../Action/actionTypes";
 
 const initialState = {
@@ -23,6 +24,7 @@ const initialState = {
   userData: [],
   message: "",
   google: "",
+  userProfile: null,
 };
 
 const userReducer = (state = initialState, action) => {
@@ -67,12 +69,12 @@ const userReducer = (state = initialState, action) => {
     case PUT_USERDATA:
       return {
         ...state,
-        userData: action.payload,
+        userProfile: action.payload,
       };
     case GET_USERDATA:
       return {
         ...state,
-        userData: action.payload,
+        userProfile: action.payload,
       };
     case MESSAGE_ERROR:
       return {
@@ -83,6 +85,11 @@ const userReducer = (state = initialState, action) => {
       return {
         ...state,
         google: action.payload,
+      };
+    case DELETE_ACCOUNT:
+      return {
+        ...state,
+        status: action.payload,
       };
     default:
       return state;
