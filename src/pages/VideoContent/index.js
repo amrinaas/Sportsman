@@ -41,7 +41,7 @@ const VideoContent = () => {
 					<h2>Loading...</h2>
 				) : (
 					<>
-						<button
+						<button className="button-bookmark-video"
 							onClick={() =>
 								handleBookmark(
 									videos.title,

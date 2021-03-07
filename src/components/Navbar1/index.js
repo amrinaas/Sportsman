@@ -59,6 +59,11 @@ const Navbar = () => {
 		history.push('/history');
 		window.location.reload(true)
 	}
+	const handleFavorite = () => {
+		history.push('/bookmark');
+		window.location.reload(true);
+
+	};
 
 	const handleSignOut = () => {
 		localStorage.removeItem('token');
@@ -98,7 +103,7 @@ const Navbar = () => {
 									{/* <DropdownItem header>Header</DropdownItem> */}
 									<DropdownItem onClick={handleProfile}>Profile</DropdownItem>
 									<DropdownItem onClick={handleHistory}>History Workout</DropdownItem>
-									<DropdownItem>Favorite Workout</DropdownItem>
+									<DropdownItem onClick={handleFavorite}>Favorite Workout</DropdownItem>
 									<DropdownItem divider />
 									<DropdownItem onClick={handleSignOut}>Sign Out</DropdownItem>
 								</DropdownMenu>
