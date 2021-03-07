@@ -40,12 +40,13 @@ const JumbotronDown = () => {
     dispatch(googleSignin());
   }, [dispatch]);
 
-  const responseGoogle = (response) => {
-    console.log("google response =>", response);
-  };
+  // const responseGoogle = (response) => {
+  //   console.log("google response =>", response);
+  // };
 
   console.log("Google Auth =>", googleAuth);
-  console.log("Sign IN =>", signIn);
+  // console.log("Sign IN =>", signIn);
+
   return (
     <>
       {/* <GoogleLogin
@@ -70,7 +71,7 @@ const JumbotronDown = () => {
             <i className="fab fa-google"></i>&nbsp; Google
           </button>
         </div>
-        <a href="#">Signup with email</a>
+        {/* <a href="#">Signup with email</a> */}
         <p>
           By signing up for Sportsman, you agree to the Terms of Service. View
           our Privacy Policy.

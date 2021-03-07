@@ -62,7 +62,7 @@ export const postSignIn = (body) => (dispatch) => {
       localStorage.setItem("token", res.data.data.token);
     })
     .catch((err) => {
-      console.log("error ==>", err.response);
+      // console.log("error ==>", err.response);
       dispatch({
         type: MESSAGE_ERROR,
         payload: err.response.data.message,
@@ -74,7 +74,6 @@ export const googleSignin = () => (dispatch) => {
   axios
     .get(`api/google`)
     .then((res) => {
-      console.log("coba", res);
       dispatch({
         type: GOOGLE_AUTH,
         payload: res.request.responseURL,
@@ -211,6 +210,3 @@ export const getUserData = () => (dispatch) => {
       console.log(err);
     });
 };
-
-// let decoded;
-// if (token && !_.isEmpty(token)) decoded = jwt_decode(token);

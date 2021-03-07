@@ -1,0 +1,39 @@
+.bookmark {
+  height: auto vh;
+  &__head {
+    > h1,
+    h2 {
+      margin: 30px auto;
+      text-align: center;
+    }
+    &__container {
+      margin: auto;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      &__video {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        flex-direction: column;
+        align-items: center;
+        border: 2px grey solid;
+        border-radius: 5px;
+        margin: 20px;
+        height: 30vh;
+        width: 20%;
+        background-color: #fb743e;
+        > i {
+          background-color: red;
+        }
+        > i:hover {
+          cursor: pointer;
+        }
+        > h4 {
+          text-align: center;
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+}

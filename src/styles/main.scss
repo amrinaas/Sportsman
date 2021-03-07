@@ -8,7 +8,7 @@
 @import "./Screens/Dashboard";
 @import "./Screens/About";
 @import "./Screens/Contactus";
-// @import "./Screens/VideoContent";
+@import "./Screens/Tracking";
 
 @import "./Components/Navbar1";
 @import "./Components/Navbar2";
@@ -16,10 +16,11 @@
 @import "./Components/JumbotronDown";
 @import "./Components/Information";
 @import "./Components/Auth";
-@import "./components/Sidebar";
+@import "./Components/Onboarding";
+@import "./Components/Sidebar";
 @import "./Screens/Faq";
 @import "./Screens/Videos";
 @import "./Screens/ContentVideo";
 @import "./Screens/AdminContentAdd";
 @import "./Screens/Content";
-@import "./Screens/Onboarding";
+@import "./Screens/BookmarkVideo";

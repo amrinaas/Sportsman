@@ -12,8 +12,9 @@ const About = () => {
     document.title = `About Us`;
   });
   return (
-    <div className="about">
+    <div className="background-about">
       <Navbar />
+    <div className="about">
       <div className="about__content" style={{ marginTop: "100px" }}>
         <div className="about__content__wrapper">
           <div className="about__content__wrapper__up">
@@ -87,6 +88,8 @@ const About = () => {
         </div>
       </div>
     </div>
+    </div>
+ 
   );
 };
 

@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { postSignUp } from "../../redux/Action/userAction";
 
 const RegisterPage = () => {
+
   useEffect(() => {
     document.title = `Register`;
   });
@@ -34,6 +35,9 @@ const RegisterPage = () => {
     history.push("/login");
   };
 
+	console.log('userData =>', userData);
+	console.log('data =>', data);
+  
   const handleChange = (e) => {
     console.log("log handle change");
     setUserData({
@@ -41,9 +45,6 @@ const RegisterPage = () => {
       [e.target.name]: e.target.value,
     });
   };
-
-  // console.log('userData =>', userData);
-  // console.log('data =>', data);
 
   return (
     <>
