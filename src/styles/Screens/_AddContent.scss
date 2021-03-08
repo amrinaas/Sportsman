@@ -1,0 +1,12 @@
+.add-content-page {
+  width: 75%;
+  & .admin-content-jumbotron-l {
+    width: 100%;
+    height: 200px;
+    background-image: url(../../assets/img/jumbotron/image1.png);
+    background-size: cover;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    border-radius: 8px;
+  }
+}

@@ -14,7 +14,7 @@ const Footer = () => {
   //   };
   return (
     <>
-      <div>
+      <div className="footer-app">
         <CardFooter
           className="text-muted"
           style={{

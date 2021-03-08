@@ -11,8 +11,25 @@ const AdminDashboard = () => {
   return (
     <>
       <Row>
-        <Sidebar />
-        <Col md="6">ini Dashboard</Col>
+        <Col md="3">
+          <Sidebar />
+        </Col>
+        <div class="jumbotron-dashboard-admin">
+          <h1>WELCOME ADMIN</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
+            error vitae provident amet excepturi nostrum? Nisi explicabo,
+            fugiat, id quo repudiandae et tempore ipsam soluta illo eius quis
+            accusantium. Exercitationem.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore,
+            minima quisquam maiores error nisi reprehenderit placeat.
+            Perspiciatis minima odio corporis reprehenderit vitae adipisci
+            mollitia? Debitis deleniti iste dolore iusto quo sint itaque
+            possimus omnis recusandae doloremque! Quaerat maiores omnis ullam.
+          </p>
+        </div>
       </Row>
     </>
   );

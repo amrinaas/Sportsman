@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Tracking from "./tracking";
 import Workout from "./workout";
 

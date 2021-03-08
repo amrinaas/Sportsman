@@ -1,0 +1,18 @@
+.jumbotron-dashboard-admin {
+  width: 70%;
+  height: 500px;
+  margin: 10px 0;
+  background-image: url(../../assets//img/jumbotron/aa-copy.png);
+  background-size: cover;
+
+  & h1 {
+    font-weight: 800;
+    color: white;
+    margin: 20px;
+  }
+
+  & p {
+    color: white;
+    margin: 15px;
+  }
+}

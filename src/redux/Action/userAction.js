@@ -14,6 +14,9 @@ import {
   GOOGLE_AUTH,
   DELETE_ACCOUNT,
   GET_USERDATA,
+  POST_FAVORITE,
+  POST_EXERCISE,
+  GET_EXERCISE,
 } from "./actionTypes";
 
 export const signUp = (payload) => {
@@ -205,6 +208,44 @@ export const getUserData = () => (dispatch) => {
         type: GET_USERDATA,
         payload: res.data,
       });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+export const getExercise = () => (dispatch) => {
+  const config = {
+    headers: { Authorization: localStorage.getItem("token") },
+  };
+  axios
+    .get(`/api/history`, config)
+    .then((res) => {
+      console.log("ini exercise =>", res);
+      if (res.status === 200) {
+        dispatch({
+          type: GET_EXERCISE,
+          payload: res.data.data,
+        });
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+export const postExercise = (body) => (dispatch) => {
+  const config = {
+    headers: { Authorization: localStorage.getItem("token") },
+  };
+  axios
+    .post(`/api/history`, body, config)
+    .then((res) => {
+      console.log("ini exercise =>", res);
+      if (res.status === 200) {
+        dispatch({
+          type: POST_EXERCISE,
+          payload: res,
+        });
+      }
     })
     .catch((err) => {
       console.log(err);

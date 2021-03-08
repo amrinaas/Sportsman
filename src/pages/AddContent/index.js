@@ -10,6 +10,7 @@ import {
   Button,
   Row,
   Col,
+  Alert,
 } from "reactstrap";
 import Sidebar from "../../components/Sidebar";
 import { postContent } from "../../redux/Action/contentAction";
@@ -51,6 +52,11 @@ const AddContent = () => {
   const dispatch = useDispatch();
   const token = localStorage.getItem("token");
 
+  const message = useSelector((state) => state.content.message);
+  const [alert, setAlert] = useState("");
+  const [visible, setVisible] = useState(true);
+  const onDismiss = () => setVisible(false);
+
   // const handleChangeUrl = (e, i) => {
   //   const list = [...inputList];
   //   list[i][e.target.name] = e.target.value;
@@ -69,6 +75,11 @@ const AddContent = () => {
     });
   };
 
+  useEffect(() => {
+    if (message.status === 200) {
+      setAlert(message.message);
+    }
+  }, [message]);
   // const handleAddInput = () => {
   //   setInputList([...inputList, { url: "", timer: "" }]);
   //   setNumber(number + 1);
@@ -81,6 +92,7 @@ const AddContent = () => {
   // console.log("input List =>", inputList);
 
   console.log("input =>", input);
+  console.log("Message =>", message);
   return (
     <>
       <Row>
@@ -90,6 +102,14 @@ const AddContent = () => {
         </Col>
         <Col md="9">
           <Container className="mt-4 mb-2 video-content-add-container">
+            {message.status === 200 ? (
+              <Alert color="success" isOpen={visible} toggle={onDismiss}>
+                {alert}
+              </Alert>
+            ) : (
+              ""
+            )}
+
             <Form onSubmit={handleSubmit}>
               <Row>
                 <FormGroup>

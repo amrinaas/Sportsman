@@ -8,6 +8,7 @@ import {
   Button,
   Row,
   Col,
+  Alert,
 } from "reactstrap";
 import Sidebar from "../../components/Sidebar";
 import { useDispatch, useSelector } from "react-redux";
@@ -22,9 +23,13 @@ const UpdateContent = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const token = localStorage.getItem("token");
+
   const content = useSelector((state) => state.content.video);
+  const message = useSelector((state) => state.content.message);
 
   const [input, setInput] = useState(content);
+  const [visible, setVisible] = useState(true);
+  const onDismiss = () => setVisible(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -40,9 +45,10 @@ const UpdateContent = () => {
 
   useEffect(() => {
     dispatch(getContentById(token, id));
-  }, []);
+  }, [dispatch, token, id]);
 
-  console.log("get one input =>", input);
+  console.log("get one input =>", input.video);
+  console.log("get one message =>", message);
 
   return (
     <>
@@ -53,6 +59,13 @@ const UpdateContent = () => {
         </Col>
         <Col md="9">
           <Container className="mt-4 mb-2 video-content-add-container">
+            {message.status === 201 ? (
+              <Alert color="info" isOpen={visible} toggle={onDismiss}>
+                {message.data.message}
+              </Alert>
+            ) : (
+              ""
+            )}
             <Form onSubmit={handleSubmit}>
               <Row>
                 <FormGroup>
@@ -194,104 +207,41 @@ const UpdateContent = () => {
                 </FormGroup>
               </Row>
 
-              <Row>
-                <FormGroup>
-                  <Label for="exampleEmail">Url 1</Label>
-                  <Input
-                    onChange={(e) => handleChangeInput(e)}
-                    // name="title"
-                    name="url1"
-                    // value={inp.image}
-                    placeholder="Url 1"
-                    type="text"
-                    // value={input.video[0].videoUrl}
-                  />
-                </FormGroup>
-                <FormGroup className="ml-4">
-                  <Label for="exampleEmail">Time 1</Label>
-                  <Input
-                    onChange={(e) => handleChangeInput(e)}
-                    // name="title"
-                    name="time1"
-                    // value={inp.image}
-                    placeholder="Time"
-                    type="text"
-                    // value={input.video[0].time}
-                  />
-                </FormGroup>
-              </Row>
-              <Row>
-                <FormGroup>
-                  <Label for="exampleEmail">Url 2</Label>
-                  <Input
-                    onChange={(e) => handleChangeInput(e)}
-                    // name="title"
-                    name="url2"
-                    // value={inp.image}
-                    placeholder="Url 2"
-                    type="text"
-                  />
-                </FormGroup>
-                <FormGroup className="ml-4">
-                  <Label for="exampleEmail">Time 2</Label>
-                  <Input
-                    onChange={(e) => handleChangeInput(e)}
-                    // name="title"
-                    name="time2"
-                    // value={inp.image}
-                    placeholder="Time 2"
-                    type="text"
-                  />
-                </FormGroup>
-              </Row>
-              <Row>
-                <FormGroup>
-                  <Label for="exampleEmail">Url 3</Label>
-                  <Input
-                    onChange={(e) => handleChangeInput(e)}
-                    // name="title"
-                    name="url3"
-                    // value={inp.image}
-                    placeholder="Url 3"
-                    type="text"
-                  />
-                </FormGroup>
-                <FormGroup className="ml-4">
-                  <Label for="exampleEmail">Time 3</Label>
-                  <Input
-                    onChange={(e) => handleChangeInput(e)}
-                    // name="title"
-                    name="time3"
-                    // value={inp.image}
-                    placeholder="Time 4"
-                    type="text"
-                  />
-                </FormGroup>
-              </Row>
-              <Row>
-                <FormGroup>
-                  <Label for="exampleEmail">Url 4</Label>
-                  <Input
-                    onChange={(e) => handleChangeInput(e)}
-                    // name="title"
-                    name="url4"
-                    // value={inp.image}
-                    placeholder="Url 5"
-                    type="text"
-                  />
-                </FormGroup>
-                <FormGroup className="ml-4">
-                  <Label for="exampleEmail">Time 5</Label>
-                  <Input
-                    onChange={(e) => handleChangeInput(e)}
-                    // name="title"
-                    name="time5"
-                    // value={inp.image}
-                    placeholder="Time 5"
-                    type="text"
-                  />
-                </FormGroup>
-              </Row>
+              {/* {input.video.length === 0 ? (
+                <h3>Loading...</h3>
+              ) : (
+                <>
+                  {input.video.map((video, i) => (
+                    <Row key={i}>
+                      <FormGroup>
+                        <Label for="exampleEmail">Url </Label>
+                        <Input
+                          onChange={(e) => handleChangeInput(e)}
+                          // name="title"
+                          name="url1"
+                          // value={inp.image}
+                          placeholder="Url 1"
+                          type="text"
+                          value={input.video[i].videoUrl}
+                        />
+                      </FormGroup>
+                      <FormGroup className="ml-4">
+                        <Label for="exampleEmail">Time </Label>
+                        <Input
+                          onChange={(e) => handleChangeInput(e)}
+                          // name="title"
+                          name="time1"
+                          // value={inp.image}
+                          placeholder="Time"
+                          type="text"
+                          value={input.video[i].time}
+                        />
+                      </FormGroup>
+                    </Row>
+                  ))}
+                </>
+              )} */}
+
               {/* {inputList.map((inp, i) => {
                 return (
                   <>

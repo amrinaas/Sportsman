@@ -11,6 +11,8 @@ import {
   MESSAGE_ERROR,
   GOOGLE_AUTH,
   DELETE_ACCOUNT,
+  POST_EXERCISE,
+  GET_EXERCISE,
 } from "../Action/actionTypes";
 
 const initialState = {
@@ -24,6 +26,7 @@ const initialState = {
   userData: [],
   message: "",
   google: "",
+  exercise: "",
   userProfile: null,
 };
 
@@ -90,6 +93,16 @@ const userReducer = (state = initialState, action) => {
       return {
         ...state,
         status: action.payload,
+      };
+    case GET_EXERCISE:
+      return {
+        ...state,
+        exercise: action.payload,
+      };
+    case POST_EXERCISE:
+      return {
+        ...state,
+        message: action.payload,
       };
     default:
       return state;
