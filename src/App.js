@@ -12,6 +12,7 @@ import Content from "./pages/Content";
 import Video from "./pages/Videos";
 import AddContent from "./pages/AddContent";
 import UpdateContent from "./pages/UpdateContent";
+import BookmarkVideo from "./pages/BookmarkVideo";
 
 function App() {
   const token = localStorage.getItem("token");
@@ -47,6 +48,7 @@ function App() {
           <Route path="/videos-content/video/:id" component={Video} />
           <Route path="/update-content/:id" component={UpdateContent} />
           <Route path="/add-content" component={AddContent} />
+          <Route path="/bookmark" component={BookmarkVideo} />
         </Switch>
       </BrowserRouter>
       <Footer />

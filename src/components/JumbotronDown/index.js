@@ -2,30 +2,30 @@ import React, { useEffect } from "react";
 import jumbotronImage from "../../assets/img/jumbotron/image1.png";
 import { googleSignin } from "../../redux/Action/userAction";
 import { useDispatch, useSelector } from "react-redux";
-import { useGoogleLogin, GoogleLogin } from "react-google-login";
+// import { useGoogleLogin, GoogleLogin } from "react-google-login";
 
 const JumbotronDown = () => {
-  const { signIn, loaded } = useGoogleLogin({
-    onSuccess: "",
-    onAutoLoadFinished: "",
-    clientId: "",
-    cookiePolicy: "",
-    loginHint: "",
-    hostedDomain: "",
-    autoLoad: "",
-    isSignedIn: "",
-    fetchBasicProfile: "",
-    redirectUri: "",
-    discoveryDocs: "",
-    onFailure: "",
-    uxMode: "",
-    scope: "",
-    accessType: "",
-    responseType: "",
-    jsSrc: "",
-    onRequest: "",
-    prompt,
-  });
+  // const { signIn, loaded } = useGoogleLogin({
+  //   onSuccess: "",
+  //   onAutoLoadFinished: "",
+  //   clientId: "",
+  //   cookiePolicy: "",
+  //   loginHint: "",
+  //   hostedDomain: "",
+  //   autoLoad: "",
+  //   isSignedIn: "",
+  //   fetchBasicProfile: "",
+  //   redirectUri: "",
+  //   discoveryDocs: "",
+  //   onFailure: "",
+  //   uxMode: "",
+  //   scope: "",
+  //   accessType: "",
+  //   responseType: "",
+  //   jsSrc: "",
+  //   onRequest: "",
+  //   prompt,
+  // });
 
   const googleAuth = useSelector((state) => state.users.google);
 
@@ -36,15 +36,15 @@ const JumbotronDown = () => {
     window.location.href = googleAuth;
   };
 
-  useEffect(() => {
-    dispatch(googleSignin());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(googleSignin());
+  // }, [dispatch]);
 
   // const responseGoogle = (response) => {
   //   console.log("google response =>", response);
   // };
 
-  console.log("Google Auth =>", googleAuth);
+  // console.log("Google Auth =>", googleAuth);
   // console.log("Sign IN =>", signIn);
 
   return (

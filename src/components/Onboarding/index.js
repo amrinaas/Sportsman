@@ -28,7 +28,7 @@ const OnBoarding = () => {
       gender: gender,
       level: level,
     };
-    dispatch(putBoardingData(token, body));
+    dispatch(putBoardingData(body));
   };
 
   useEffect(() => {
@@ -49,8 +49,8 @@ const OnBoarding = () => {
 					<div className='form__group field'>
 						<FormGroup tag='fieldset'>
 							<FormGroup check>								
-								<Button color="danger" size="lg" block onClick={(e) => setGender(e.target.value)} name='gender' value='male' >Male</Button>																
-								<Button color="primary" size="lg" block onClick={(e) => setGender(e.target.value)} name='gender' value='female' >Female</Button>						
+								<Button color="danger" size="lg" block onClick={(e) => setGender(e.target.value)} name='gender' value='male' outline={gender === 'male' ? false : true}>Male</Button>																
+								<Button color="danger" size="lg" block onClick={(e) => setGender(e.target.value)} name='gender' value='female' outline={gender === 'female' ? false : true}>Female</Button>						
 							</FormGroup>
 						</FormGroup>
 					</div>
@@ -59,9 +59,9 @@ const OnBoarding = () => {
 					<div className='form__group field'>
 						<FormGroup tag='fieldset'>
 							<FormGroup check>	
-        						<Button color="success" size="lg" block onClick={(e) => setLevel(e.target.value)} name='level' value='1' >Often</Button>
-        						<Button color="warning" size="lg" block onClick={(e) => setLevel(e.target.value)} name='level' value='2' >Sometimes</Button>
-        						<Button color="danger" size="lg" block onClick={(e) => setLevel(e.target.value)} name='level' value='3' >Never</Button>
+        						<Button color="danger" size="lg" block onClick={(e) => setLevel(e.target.value)} name='level' value='1' outline={level === '1' ? false : true}>Often</Button>
+        						<Button color="danger" size="lg" block onClick={(e) => setLevel(e.target.value)} name='level' value='2' outline={level === '2' ? false : true}>Sometimes</Button>
+        						<Button color="danger" size="lg" block onClick={(e) => setLevel(e.target.value)} name='level' value='3' outline={level === '3' ? false : true}>Never</Button>
 							</FormGroup>
 						</FormGroup>
 					</div>

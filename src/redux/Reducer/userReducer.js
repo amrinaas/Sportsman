@@ -35,13 +35,15 @@ const userReducer = (state = initialState, action) => {
     case SIGN_UP:
       return {
         ...state,
-        signUp: action.payload,
+        // signUp: action.payload,
+        message: action.payload,
       };
     case SIGN_IN:
       return {
         ...state,
         signIn: action.payload.token,
         status: action.payload.status,
+        message: "",
       };
     case SET_BOARDING:
       return {

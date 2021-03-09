@@ -140,7 +140,7 @@ const Navbar = () => {
                   <DropdownItem onClick={handleHistory}>
                     History Workout
                   </DropdownItem>
-                  <DropdownItem onClick={handleFavorite}>
+                  <DropdownItem onClick={() => history.push("/bookmark")}>
                     Favorite Workout
                   </DropdownItem>
                   <DropdownItem divider />
