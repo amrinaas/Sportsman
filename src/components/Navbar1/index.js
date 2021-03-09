@@ -65,6 +65,11 @@ const Navbar = () => {
     window.location.reload(true);
   };
 
+  const handleFavorite = () => {
+    history.push("/bookmark");
+    window.location.reload(true);
+  };
+
   const handleSignOut = () => {
     localStorage.removeItem("token");
     history.push("/");
@@ -123,7 +128,7 @@ const Navbar = () => {
                     src={
                       userProfile && userProfile.images
                         ? userProfile.images
-                        : img
+                        : { img }
                     }
                     alt=""
                   />
@@ -135,7 +140,9 @@ const Navbar = () => {
                   <DropdownItem onClick={handleHistory}>
                     History Workout
                   </DropdownItem>
-                  <DropdownItem>Favorite Workout</DropdownItem>
+                  <DropdownItem onClick={handleFavorite}>
+                    Favorite Workout
+                  </DropdownItem>
                   <DropdownItem divider />
                   <DropdownItem onClick={handleSignOut}>Sign Out</DropdownItem>
                 </DropdownMenu>
