@@ -22,7 +22,7 @@ const AdminContent = () => {
   }, [dispatch, token]);
   console.log("message =>", message);
 
-  const handleDelete = (id) => {
+  const handleDelete = (id) => { 
     // history.push(`admin-content/${id}`);
     dispatch(deleteContent(token, id));
   };

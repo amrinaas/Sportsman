@@ -62,9 +62,9 @@ export const postSignIn = (body) => (dispatch) => {
     .post(`api/login`, body)
     .then((res) => {
       console.log("ini res =>", res);
-      // const decoded = jwt_decode(res.data.data.token);
+      const decoded = jwt_decode(res.data.data.token);
       dispatch(signIn(res.data.data));
-      // localStorage.setItem('userData', JSON.stringify(decoded));
+      localStorage.setItem('userData', JSON.stringify(decoded));
       dispatch(setToken(res.data.data.token));
       localStorage.setItem("token", res.data.data.token);
       return true;

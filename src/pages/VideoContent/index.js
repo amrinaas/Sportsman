@@ -24,7 +24,7 @@ const VideoContent = () => {
 
   useEffect(() => {
     dispatch(getContentById(token, id));
-  }, [dispatch, token, id]);
+  }, [dispatch, token, id]); 
 
   const handleBookmark = (title, id) => {
     const body = {
@@ -62,19 +62,19 @@ const VideoContent = () => {
               Bookmark Content
             </button>
 
-            {videos.video.map((video, i) => (
+            {videos.video.map((item, i) => (
               <div key={i} className="content-video-card">
                 <div className="video-card-long">
                   <img
-                    src={`https://img.youtube.com/vi/${video.videoUrl}/0.jpg`}
+                    src={`https://img.youtube.com/vi/${item.videoUrl}/0.jpg`}
                     alt=""
                   />
-                  <p>{video.time} seconds</p>
+                  <p>{item.time} seconds</p>
                   <div className="button-play-video">
                     <h6
                       onClick={() =>
                         history.push({
-                          pathname: `video/${video.videoUrl}`,
+                          pathname: `video/${item.videoUrl}`,
                           title: videos.title,
                         })
                       }

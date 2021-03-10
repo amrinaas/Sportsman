@@ -1,49 +1,69 @@
-.button-bookmark-video {
-  background-color: orange;
-  border: 1px solid;
-  border-radius: 5px;
-  color: white;
-}
-.button-bookmark-video:hover {
-  background-color: #ef8d32;
-}
+// .button-bookmark-video {
+//   background-color: orange;
+//   border: 1px solid;
+//   border-radius: 5px;
+//   color: white;
+// }
+// .button-bookmark-video:hover {
+//   background-color: #ef8d32;
+// }
 
 .bookmark {
-  height: auto vh;
+  height: 80vh;
   &__head {
+    &__container {
+      &__video {
+        display: flex;
+        justify-content: space-between;
+        margin: 15px;
+        border-bottom: 2px solid grey;
+        padding-bottom: 10px;
+        &__title {
+          cursor: pointer;
+          > h4:hover {
+            font-size: 25px;
+            transition: all 200ms;
+          }
+        }
+        &__button {
+        }
+      }
+    }
+
     > h1,
     h2 {
       margin: 30px auto;
       text-align: center;
+      font-size: 25px;
     }
-    &__container {
-      margin: auto;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      &__video {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-        flex-direction: column;
-        align-items: center;
-        border: 2px grey solid;
-        border-radius: 5px;
-        margin: 20px;
-        height: 30vh;
-        width: 20%;
-        background-color: #fb743e;
-        > i {
-          background-color: red;
-        }
-        > i:hover {
-          cursor: pointer;
-        }
-        > h4 {
-          text-align: center;
-          text-transform: uppercase;
-        }
-      }
-    }
+    // &__container {
+    //   margin: auto;
+    //   display: flex;
+    //   justify-content: center;
+    //   flex-wrap: wrap;
+    //   &__video {
+    //     display: flex;
+    //     flex-wrap: wrap;
+    //     justify-content: space-around;
+    //     flex-direction: column;
+    //     align-items: center;
+    //     border: 1px grey solid;
+    //     border-radius: 5px;
+    //     margin: 20px;
+    //     height: 30vh;
+    //     width: 20%;
+    //     background-color: #fb743e;
+    //     // > i {
+    //     //   background-color: red;
+    //     // }
+    //     // > i:hover {
+    //     //   cursor: pointer;
+    //     // }
+    //     > h4 {
+    //       text-align: center;
+    //       text-transform: uppercase;
+    //     }
+    //   }
+    // }
   }
 }
