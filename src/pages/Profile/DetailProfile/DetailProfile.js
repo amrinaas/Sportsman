@@ -6,6 +6,12 @@ import {
   putUserData,
   getUserData,
 } from "../../../redux/Action/userAction";
+import {
+  NotificationContainer,
+  NotificationManager,
+} from "react-notifications";
+import "react-notifications/lib/notifications.css";
+import { Button } from "reactstrap";
 
 import profile from "../../../assets/img/anonymous.jpg";
 
@@ -19,6 +25,7 @@ const DetailProfile = () => {
 
   const dispatch = useDispatch();
   const userProfile = useSelector((state) => state.users.userProfile);
+  const message = useSelector((state) => state.users.message);
 
   const handleChange = (event) => {
     setUserData({
@@ -34,6 +41,7 @@ const DetailProfile = () => {
   };
 
   const handleuserData = () => {
+    NotificationManager.info("Loading", "", 3000);
     dispatch(putUserData(userData, gender));
   };
 
@@ -46,8 +54,13 @@ const DetailProfile = () => {
   }, []);
 
   useEffect(() => {
-    console.log("Test", userProfile);
-  }, [userProfile]);
+    if (message.status === 400) {
+      NotificationManager.error(message.data.message, "", 3000);
+    } else if (message.status === 200) {
+      NotificationManager.success(message.data.message, "", 3000);
+      window.location.reload(true);
+    }
+  }, [message]);
 
   const onCreate = () => {
     handleUploadImage();
@@ -110,30 +123,42 @@ const DetailProfile = () => {
               <label htmlFor="">Gender</label>
             </td>
             <div className="pr__gender">
-              <div className="pr__gender__choose">
-                <input
-                  type="radio"
-                  onChange={(event) => setGender(event.target.value)}
-                  name="gender"
-                  value="female"
-                  id="link_to_female"
-                />
-                <label for="link_to_female">
-                  <i class="fas fa-female"></i>
-                </label>
-              </div>
-              <div className="pr__gender__choose">
-                <input
-                  type="radio"
-                  onChange={(event) => setGender(event.target.value)}
-                  name="gender"
-                  value="male"
-                  id="link_to_male"
-                />
-                <label for="link_to_male">
-                  <i class="fas fa-male"></i>
-                </label>
-              </div>
+              <Button
+                color="secondary"
+                size="lg"
+                block
+                onClick={(e) => setGender(e.target.value)}
+                name="gender"
+                value="male"
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  margin: "10px",
+                }}
+                outline={gender === "male" ? false : true}
+              >
+                <i class="fas fa-male"></i>
+                Male
+              </Button>
+              <Button
+                color="secondary"
+                size="lg"
+                block
+                onClick={(e) => setGender(e.target.value)}
+                name="gender"
+                value="female"
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  margin: "10px",
+                }}
+                outline={gender === "female" ? false : true}
+              >
+                <i class="fas fa-female"></i>
+                Female
+              </Button>
             </div>
           </tr>
           <tr>
@@ -155,6 +180,7 @@ const DetailProfile = () => {
           <button onClick={onCreate} className="pr__button">
             Save
           </button>
+          <NotificationContainer />
         </div>
       </main>
     </>
