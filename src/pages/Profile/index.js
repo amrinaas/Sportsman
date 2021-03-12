@@ -4,6 +4,7 @@ import { NavLink, Switch, Route } from "react-router-dom";
 
 import DetailProfile from "./DetailProfile/DetailProfile";
 import DetailProfilePass from "./DetailProfile/DetailProfilePass";
+import DetailSubscription from "./DetailProfile/DetailSubscription";
 import Navbar from "../../components/Navbar2";
 
 const Profile = () => {
@@ -50,6 +51,11 @@ const Profile = () => {
                 path="/profile/privacy"
                 exact
                 component={DetailProfilePass}
+              />
+              <Route
+                path="/profile/subscription"
+                exact
+                component={DetailSubscription}
               />
             </Switch>
           </main>
