@@ -8,7 +8,7 @@ import {
   CardHeader,
   CardBody,
   CardFooter,
-  CardText,
+  CardGroup,
 } from "reactstrap";
 // import pictbottom from "../../assets/img/feature/jogging.jpg";
 import { useSelector, useDispatch } from "react-redux";
@@ -27,32 +27,37 @@ const Workout = () => {
 
   return (
     <>
-      <Container>
         <div className="workout__content__bottom">
           <div className="workout__content__bottom__text">
-            <h3>Recent Record</h3>
-
-            <Row xs="3">
+            <h2>Recent Record</h2>
+            
+            <Row justify = "space-between">
               {exercises.length === 0 ? (
-                <h3>Loading...</h3>
+                <h3>You Haven't Do Exercise</h3>
               ) : (
                 <>
                   {exercises.map((exercise, i) => (
-                    <Card color="secondary" key={i}>
+                  <Col>
+
+
+                   
+                    <Card className="card2" key={i}>
                       {exercise.created_at}
                       <CardHeader>{exercise.content}</CardHeader>
                       <CardBody>
-                        <CardTitle tag="h5">{exercise.video}</CardTitle>
+                        <CardTitle >{exercise.video}</CardTitle>
                       </CardBody>
-                      <CardFooter>{exercise.times}</CardFooter>
+                      <CardFooter><p>{exercise.times}</p></CardFooter>
                     </Card>
+                  
+                  </Col>
                   ))}
                 </>
               )}
             </Row>
+
           </div>
         </div>
-      </Container>
     </>
   );
 };

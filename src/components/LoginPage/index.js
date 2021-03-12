@@ -37,12 +37,12 @@ const LoginPage = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     NotificationManager.info("Loading", "", 3000);
-    dispatch(postSignIn(userData));
-    // .then((res) => {
-    // if (!res) {
-    //   NotificationManager.info("Email/Password is wrong", "", 1000);
-    // }
-    // });
+    dispatch(postSignIn(userData))
+    .then((res) => {
+    if (!res) {
+      NotificationManager.info("Email/Password is wrong", "", 1000);
+    }
+    });
   };
 
   useEffect(() => {
