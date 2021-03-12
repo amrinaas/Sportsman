@@ -1,19 +1,29 @@
 import React, { useState, useEffect } from "react";
+import Headroom from "react-headroom";
 import logo from "../../assets/img/logo/orange.png";
 import img from "../../assets/img/anonymous.jpg";
-import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import Headroom from "react-headroom";
-import _ from "lodash";
+import { useHistory } from "react-router-dom";
 import { getUserData } from "../../redux/Action/userAction";
 import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink,
   ButtonDropdown,
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
 } from "reactstrap";
 
-const Navbar = () => {
+const Navbars = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggles = () => setIsOpen(!isOpen);
+
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
   });
@@ -84,79 +94,97 @@ const Navbar = () => {
     }
   }, []);
 
-  console.log("INI", userProfile);
   return (
     <Headroom>
       <header className={`header ${scrollY > 230 ? "layout--orange" : ""}`}>
-        <img src={logo} onClick={handleHome} alt="" className="layout__img" />
-        <input className="menu-btn" type="checkbox" id="menu-btn" />
-        <label
-          className="menu-icon"
-          htmlFor="menu-btn"
-          style={{ color: "white" }}
-        >
-          <span className="navicon"></span>
-        </label>
-        <ul className="menu">
-          <li onClick={handleFeature}>Feature</li>
-          <li onClick={handleAbout}>About</li>
-          <li onClick={handleContactUs}>Contact Us</li>
-          {userProfile === null ? (
-            ""
-          ) : userProfile.roles === "admin" ? (
-            <li onClick={() => history.push("/admin-dashboard")}>Admin Page</li>
-          ) : (
-            ""
-          )}
-          {userProfile ? (
-            <div>
-              <ButtonDropdown
-                isOpen={dropdownOpen}
-                toggle={toggle}
-                style={{ marginTop: "5px" }}
-              >
-                <DropdownToggle
-                  caret
-                  style={{
-                    fontWeight: "500",
-                    backgroundColor: "RGBA(255,255,255,0)",
-                    border: "none",
-                  }}
-                >
-                  <img
-                    className="image-navbar"
-                    src={
-                      userProfile && userProfile.images
-                        ? userProfile.images
-                        : { img }
-                    }
-                    alt=""
-                  />
-                  {/* <span>{userProfile && userProfile.name}</span> */}
-                </DropdownToggle>
-                <DropdownMenu>
-                  {/* <DropdownItem header>Header</DropdownItem> */}
-                  <DropdownItem onClick={handleProfile}>Profile</DropdownItem>
-                  <DropdownItem onClick={handleHistory}>
-                    History Workout
-                  </DropdownItem>
-                  <DropdownItem onClick={() => history.push("/bookmark")}>
-                    Favorite Workout
-                  </DropdownItem>
-                  <DropdownItem divider />
-                  <DropdownItem onClick={handleSignOut}>Sign Out</DropdownItem>
-                </DropdownMenu>
-              </ButtonDropdown>
-            </div>
-          ) : (
-            <button onClick={handleSignIn} className="layout__button">
-              Login
-            </button>
-          )}
-        </ul>
+        <Navbar dark expand="md">
+          <NavbarBrand>
+            <img
+              src={logo}
+              onClick={handleHome}
+              alt=""
+              className="layout__img"
+            />
+          </NavbarBrand>
+          <NavbarToggler onClick={toggles} />
+          <Collapse
+            isOpen={isOpen}
+            navbar
+            style={{ justifyContent: "flex-end" }}
+          >
+            <Nav className="me-auto" navbar>
+              <NavItem>
+                <NavLink onClick={handleFeature}>
+                  <span className="nav-span">Feature</span>
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink onClick={handleAbout}>
+                  <span className="nav-span">About</span>
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink onClick={handleContactUs}>
+                  <span className="nav-span">Contact Us</span>
+                </NavLink>
+              </NavItem>
+            </Nav>
+            <NavItem>
+              {userProfile ? (
+                <div>
+                  <ButtonDropdown
+                    isOpen={dropdownOpen}
+                    toggle={toggle}
+                    style={{ marginTop: "5px" }}
+                  >
+                    <DropdownToggle
+                      caret
+                      style={{
+                        fontWeight: "500",
+                        backgroundColor: "RGBA(255,255,255,0)",
+                        border: "none",
+                      }}
+                    >
+                      <img
+                        className="image-navbar"
+                        src={
+                          userProfile && userProfile.images
+                            ? userProfile.images
+                            : { img }
+                        }
+                        alt=""
+                      />
+                      {/* <span>{userProfile && userProfile.name}</span> */}
+                    </DropdownToggle>
+                    <DropdownMenu right>
+                      {/* <DropdownItem header>Header</DropdownItem> */}
+                      <DropdownItem onClick={handleProfile}>
+                        Profile
+                      </DropdownItem>
+                      <DropdownItem onClick={handleHistory}>
+                        History Workout
+                      </DropdownItem>
+                      <DropdownItem onClick={() => history.push("/bookmark")}>
+                        Favorite Workout
+                      </DropdownItem>
+                      <DropdownItem divider />
+                      <DropdownItem onClick={handleSignOut}>
+                        Sign Out
+                      </DropdownItem>
+                    </DropdownMenu>
+                  </ButtonDropdown>
+                </div>
+              ) : (
+                <button onClick={handleSignIn} className="layout__button">
+                  Login
+                </button>
+              )}
+            </NavItem>
+          </Collapse>
+        </Navbar>
       </header>
     </Headroom>
   );
 };
 
-export default Navbar;
+export default Navbars;
