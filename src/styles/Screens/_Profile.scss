@@ -32,6 +32,10 @@
   padding: 40px;
   display: flex;
   justify-content: center;
+  // @include for-size(tablet) {
+  //   display: flex;
+  //   flex-direction: column;
+  // }
 }
 
 .pr {

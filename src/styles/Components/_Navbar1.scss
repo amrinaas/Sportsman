@@ -10,6 +10,13 @@
     height: 35px;
     margin-top: 3px;
     cursor: pointer;
+    @include for-size(tablet) {
+      height: 30px;
+    }
+    @include for-size(phone) {
+      height: 20px;
+      margin: 0;
+    }
   }
 
   &__button {

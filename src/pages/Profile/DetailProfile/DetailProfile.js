@@ -161,7 +161,7 @@ const DetailProfile = () => {
               </Button>
             </div>
           </tr>
-          <tr>
+          {/* <tr>
             <td className="pr__label">
               <label htmlFor="">Profile Picture</label>
             </td>
@@ -175,7 +175,7 @@ const DetailProfile = () => {
                 }}
               />
             </td>
-          </tr>
+          </tr> */}
           <button onClick={onCreate} className="pr__button">
             Save
           </button>
