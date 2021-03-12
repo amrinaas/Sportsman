@@ -34,15 +34,26 @@ const LoginPage = () => {
     history.push("/");
   };
 
-	const onSubmit = (e) => {
-		e.preventDefault();
-		NotificationManager.info('Loading', '', 3000);
-		dispatch(postSignIn(userData)).then((res) => {
-			if(!res){
-				NotificationManager.info('Email/Password is wrong','',1000);
-			}
-		})
-	};
+  const onSubmit = (e) => {
+    e.preventDefault();
+    NotificationManager.info("Loading", "", 3000);
+    dispatch(postSignIn(userData));
+    // .then((res) => {
+    // if (!res) {
+    //   NotificationManager.info("Email/Password is wrong", "", 1000);
+    // }
+    // });
+  };
+
+  useEffect(() => {
+    if (message.status === 404) {
+      NotificationManager.error(message.data.message, "", 2000);
+    } else if (message.status === 400) {
+      NotificationManager.error(message.data.message, "", 2000);
+    }
+  }, [message]);
+
+  // console.log("message =>", message);
 
   const handleChange = (e) => {
     setUserData({
@@ -65,42 +76,56 @@ const LoginPage = () => {
     }
   }, [status, history]);
 
-	return (
-		<>
-			<div className='bg-login'>
-				<img onClick={handleHome} className='login-logo' src={Logo} alt='sportsman' />
-				<div className='login-container'>
-					<h2>SIGN IN</h2>
-					{token ? (
-						<div>
-							<h2>You Already Sign as {decoded.name}</h2>
-							<p>
-								<span onClick={handleHome}>Click here</span> to redirect to Homepage
-							</p>
-						</div>
-					) : (
-						<> 
-							<div className='form__group field'>
-								<input type='email' class='form__field' placeholder='Email' name='email' id='email' required onChange={handleChange} />
-								<label for='email' class='form__label'>
-									Email
-								</label>
-							</div>
+  return (
+    <>
+      <div className="bg-login">
+        <img
+          onClick={handleHome}
+          className="login-logo"
+          src={Logo}
+          alt="sportsman"
+        />
+        <div className="login-container">
+          <h2>SIGN IN</h2>
+          {token ? (
+            <div>
+              <h2>You Already Sign as {decoded.name}</h2>
+              <p>
+                <span onClick={handleHome}>Click here</span> to redirect to
+                Homepage
+              </p>
+            </div>
+          ) : (
+            <>
+              <div className="form__group field">
+                <input
+                  type="email"
+                  className="form__field"
+                  placeholder="Email"
+                  name="email"
+                  id="email"
+                  required
+                  onChange={handleChange}
+                />
+                <label htmlFor="email" className="form__label">
+                  Email
+                </label>
+              </div>
 
-              				<div className="form__group field">
-                			<input
-                  				type="password"
-                  				className="form__field"
-                  				placeholder="Password"
-                  				name="password"
-                  				id="password"
-                  				required
-                  				onChange={handleChange}
-                			/>
-                			<label htmlFor="password" className="form__label">
-                  				Password
-                			</label>
-              				</div>
+              <div className="form__group field">
+                <input
+                  type="password"
+                  className="form__field"
+                  placeholder="Password"
+                  name="password"
+                  id="password"
+                  required
+                  onChange={handleChange}
+                />
+                <label htmlFor="password" className="form__label">
+                  Password
+                </label>
+              </div>
 
               <button onClick={onSubmit} className="signin-button">
                 SIGN IN

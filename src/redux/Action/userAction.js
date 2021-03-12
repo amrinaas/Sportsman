@@ -64,7 +64,7 @@ export const postSignIn = (body) => (dispatch) => {
       console.log("ini res =>", res);
       const decoded = jwt_decode(res.data.data.token);
       dispatch(signIn(res.data.data));
-      localStorage.setItem('userData', JSON.stringify(decoded));
+      localStorage.setItem("userData", JSON.stringify(decoded));
       dispatch(setToken(res.data.data.token));
       localStorage.setItem("token", res.data.data.token);
       return true;
@@ -163,11 +163,15 @@ export const putUserData = (userData) => (dispatch) => {
       }
       dispatch({
         type: PUT_USERDATA,
+        // payload: decoded,
+
         payload: {
           user: decoded,
           message: res,
         },
       });
+      // alert("Update Data Success");
+      // window.location.reload(true);
     })
     .catch((err) => {
       console.log(err);

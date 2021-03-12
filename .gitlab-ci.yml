@@ -1,19 +1,17 @@
 stages:
-  - build
+  - test
   - staging
-  - production
 
-build:
-  stage: build
-  image: node:12.18.0
+test:
+  image: node:latest
+  stage: test
   script:
     - npm install
-  cache:
-    paths:
-      - node_modules/
+    - npm run test
   only:
-    - develop
     - master
+  tags:
+    - docker
 
 staging:
   stage: staging
@@ -21,16 +19,8 @@ staging:
     - apt-get update -qy
     - apt-get install -y ruby-dev
     - gem install dpl
-    - dpl --provider=heroku --app=beta-app-sportsman --api-key=$HEROKU_API_KEY_SPORTSMAN
-  only:
-    - develop
-
-production:
-  stage: production
-  script:
-    - apt-get update -qy
-    - apt-get install -y ruby-dev
-    - gem install dpl
-    - dpl --provider=heroku --app=app-sportsman --api-key=$HEROKU_API_KEY_SPORTSMAN
+    - dpl --provider=heroku --app=${REPO_NAME} --api-key=${HEROKU_API}
   only:
     - master
+  tags:
+    - docker

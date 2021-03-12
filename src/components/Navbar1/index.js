@@ -88,7 +88,7 @@ const Navbars = () => {
 
   useEffect((res) => {
     dispatch(getUserData());
-    console.log("ini userProfile", userProfile);
+    // console.log("ini userProfile", userProfile);
     if (userProfile && userProfile.status === 200) {
       localStorage.setItem("token", res.data.data);
     }

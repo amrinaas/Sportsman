@@ -4,39 +4,38 @@ import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getBookmarkVideo } from "../../redux/Action/bookmarkAction";
 import { deleteBookmark } from "../../redux/Action/bookmarkAction";
+import {
+  NotificationContainer,
+  NotificationManager,
+} from "react-notifications";
+import "react-notifications/lib/notifications.css";
 
 export default function BookmarkVideo() {
   useEffect(() => {
     document.title = `Bookmark`;
   });
+  const history = useHistory();
   const dispatch = useDispatch();
   const bookmarks = useSelector((state) => state.bookmark.bookmarked);
+  const message = useSelector((state) => state.bookmark.message);
   const token = localStorage.getItem("token");
   useEffect(() => {
     dispatch(getBookmarkVideo(token));
   }, [dispatch, token]);
 
-  // useEffect(() =>{
-  // 	dispatch(deleteBookmark(token));
-  // }, [dispatch, token])
-
-  // const handleDeleteBookmark = (title, id) => {
-  //   const body = {
-  //     content_id: id,
-  //     tittle: title,
-  //   };
-  //   dispatch(bookmarkVideo(token, body));
-  // };
-
   const handleDeleteBookmark = (id) => {
-    const body = {
-      content_id: id
-    };
-    dispatch(deleteBookmark(token, body));
+    dispatch(deleteBookmark(token, id));
+    // window.location.reload(true)
+    dispatch(getBookmarkVideo(token));
   };
+  useEffect(() => {
+    if (message.status === 200) {
+      NotificationManager.success(message.data.message, "", 3000);
+    }
+  }, [message]);
 
-  const history = useHistory();
   console.log("this is bookmarks", bookmarks);
+  console.log("this is message", message);
   return (
     <div className="bookmark">
       <div>
@@ -44,33 +43,48 @@ export default function BookmarkVideo() {
       </div>
 
       <div className="bookmark__head">
-        <h1>These are the collection of your favorite videos</h1>
-        <h2>Start Your Workout</h2>
+        <div className="bookmark__head__text">
+          <h1>These are the collection of your favorite videos</h1>
+          <h2>Start Your Workout</h2>
+        </div>
         {bookmarks.length === 0 ? (
-          <h4>Loading...</h4>
+          <>
+            <h3>Your collection is empty </h3>
+          </>
         ) : (
           <div className="bookmark__head__container">
-            {bookmarks
-              .map((bookmark, i) => (
-                <div key={i} className="bookmark__head__container__video">
-                  <div className="bookmark__head__container__video__title" onClick={() =>
-                        history.push(`/videos-content/${bookmark.content_id}`)
-                      }>
-                  <h4>{bookmark.tittle}</h4>
-                  </div> 
-                  <div className= "bookmark__head__container__video__button">
-                  <button 
+            {bookmarks.map((bookmark, i) => (
+              <div key={i} className="bookmark__head__container__video">
+                <div
+                  className="bookmark__head__container__video__title"
+                  onClick={() =>
+                    history.push(`/videos-content/${bookmark.content_id}`)
+                  }
+                >
+                  <h5>{bookmark.tittle}</h5>
+                </div>
+                <div className="bookmark__head__container__video__button">
+                  {/* <button 
                     className="btn btn-danger"
-                    onClick={() => handleDeleteBookmark(bookmark.content_id)}
+                    onClick={()=> handleDeleteBookmark({id:bookmark._id})
+                    // onClick={()=> console.log("ini_id:", {id:bookmark._id})
+                  }
+                  >
+                    Delete
+                  </button> */}
+                  <button
+                    className="btn btn-danger"
+                    onClick={() => handleDeleteBookmark(bookmark._id)}
                   >
                     Delete
                   </button>
-                  </div>
                 </div>
-              ))}
+              </div>
+            ))}
           </div>
         )}
       </div>
+      <NotificationContainer />
     </div>
   );
 }

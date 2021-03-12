@@ -23,12 +23,12 @@ export const bookmarkVideo = (token, body) => (dispatch) => {
       console.log(err);
     });
 };
-export const deleteBookmark = ( token, body) =>(dispatch) => {
+export const deleteBookmark = ( token, id) =>(dispatch) => {
   const config = {
     headers: { Authorization: token },
   };
   axios
-  .delete(`/api/favourite`, config, body)
+  .delete(`/api/favourite/${id}`, config)
   .then((res) => {
     console.log("ini delete", res)
     dispatch({
@@ -40,10 +40,9 @@ export const deleteBookmark = ( token, body) =>(dispatch) => {
     console.log(err);
   });
 };
-
 export const getBookmarkVideo = (token) => (dispatch) => {
   const userData = JSON.parse(localStorage.getItem("userData"))
-  console.log("userData", userData.userId)
+  // console.log("userData", userData.userId)
   const config = {
     headers: { Authorization: token },
   };

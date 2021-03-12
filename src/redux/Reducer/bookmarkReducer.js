@@ -1,4 +1,8 @@
-import { BOOKMARK_VIDEO, GET_BOOKMARK_VIDEO } from "../Action/actionTypes";
+import {
+  BOOKMARK_VIDEO,
+  GET_BOOKMARK_VIDEO,
+  DELETE_BOOKMARK_VIDEO,
+} from "../Action/actionTypes";
 
 const initialState = {
   bookmark: "",
@@ -18,6 +22,11 @@ const bookmarkReducer = (state = initialState, action) => {
       return {
         ...state,
         bookmarked: action.payload,
+      };
+    case DELETE_BOOKMARK_VIDEO:
+      return {
+        ...state,
+        message: action.payload,
       };
     default:
       return state;

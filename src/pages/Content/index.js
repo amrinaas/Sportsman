@@ -4,9 +4,25 @@ import { useHistory } from "react-router-dom";
 import Navbar from "../../components/Navbar1";
 import { useDispatch, useSelector } from "react-redux";
 // import playButton from "../../assets/img/button/play-button.png";
-import testImg from "../../assets/img/jumbotron/aa.jpg";
-
+// import testImg from "../../assets/img/jumbotron/aa.jpg";
+import {
+  TabContent,
+  TabPane,
+  Nav,
+  NavItem,
+  NavLink,
+  Card,
+  Button,
+  CardTitle,
+  CardText,
+  Row,
+  Col,
+} from "reactstrap";
 import { getContent } from "../../redux/Action/contentAction";
+import classnames from "classnames";
+import All from "./All";
+import Female from "./Female";
+import Male from "./Male";
 
 const Content = () => {
   useEffect(() => {
@@ -22,18 +38,12 @@ const Content = () => {
   //   setScrollY(window.scrollY);
   // };
 
-  const dispatch = useDispatch();
-  const contents = useSelector((state) => state.content.content);
-  const token = localStorage.getItem("token");
+  const [activeTab, setActiveTab] = useState("1");
 
-  useEffect(() => {
-    dispatch(getContent(token));
-  }, [dispatch, token]);
+  const toggle = (tab) => {
+    if (activeTab !== tab) setActiveTab(tab);
+  };
 
-  const history = useHistory();
-
-  // console.log(scrollY);
-  console.log("ini content", contents);
   return (
     <>
       <div className="content-jumbotron">
@@ -121,35 +131,72 @@ const Content = () => {
         </div>
       </div>
 
-      <div className="content-container" id="workout">
+      <div class="content-title-workout">
         <h2>Start Your Workout</h2>
-        {contents.length === 0 ? (
-          <h4>Loading...</h4>
-        ) : (
-          <>
-            {contents
-              .map((content, i) => (
-                <div key={i} className="content-card">
-                  <img className="content-img" src={content.image} alt="test" />
 
-                  <div className="content-description">
-                    <h4>{content.title}</h4>
-                    <p>{content.description}</p>
-                  </div>
-
-                  <div
-                    className="start-button"
-                    onClick={() =>
-                      history.push(`/videos-content/${content._id}`)
-                    }
-                  >
-                    <i className="fas fa-play"></i>
-                  </div>
-                </div>
-              ))
-              .reverse()}
-          </>
-        )}
+        <Nav tabs>
+          <NavItem>
+            <NavLink
+              className={classnames({ active: activeTab === "1" })}
+              onClick={() => {
+                toggle("1");
+              }}
+              style={{
+                cursor: "pointer",
+                color: "black",
+                fontWeight: activeTab === "1" ? "700" : "500",
+                fontSize: activeTab === "1" ? "17px" : "16px",
+              }}
+            >
+              All
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink
+              className={classnames({ active: activeTab === "2" })}
+              onClick={() => {
+                toggle("2");
+              }}
+              style={{
+                cursor: "pointer",
+                color: "black",
+                fontWeight: activeTab === "2" ? "700" : "500",
+                fontSize: activeTab === "2" ? "17px" : "16px",
+              }}
+            >
+              Female
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink
+              className={classnames({ active: activeTab === "3" })}
+              onClick={() => {
+                toggle("3");
+              }}
+              style={{
+                cursor: "pointer",
+                color: "black",
+                fontWeight: activeTab === "3" ? "700" : "500",
+                fontSize: activeTab === "3" ? "17px" : "16px",
+              }}
+            >
+              Male
+            </NavLink>
+          </NavItem>
+        </Nav>
+      </div>
+      <div className="content-container" id="workout">
+        <TabContent activeTab={activeTab}>
+          <TabPane tabId="1">
+            <All />
+          </TabPane>
+          <TabPane tabId="2">
+            <Female />
+          </TabPane>
+          <TabPane tabId="3">
+            <Male />
+          </TabPane>
+        </TabContent>
       </div>
 
       {/* <div className="container-video">

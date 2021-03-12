@@ -9,23 +9,48 @@
 // }
 
 .bookmark {
-  height: 80vh;
+  background-image: url("../../assets/img/about/fav-background.jpg");
+  background-size: cover;
+  height: 120vh;
   &__head {
+    > h3 {
+      color: white;
+      background-color: rgba($color: black, $alpha: 0.5);
+      width: 40%;
+      border-radius: 5px;
+      margin: auto;
+      text-align: center;
+      height: 15vh;
+    }
+    &__text {
+      background-color: rgba($color: white, $alpha: 0.9);
+      width: 50%;
+      margin: 40px auto;
+      text-align: center;
+      border-radius: 10px;
+      > h2 {
+        background-color: rgba($color: tomato, $alpha: 0.9);
+        width: 40%;
+        border-radius: 5px;
+      }
+    }
     &__container {
+      background-color: rgba($color: black, $alpha: 0.35);
+      height: 100vh;
       &__video {
         display: flex;
         justify-content: space-between;
         margin: 15px;
-        border-bottom: 2px solid grey;
+        border-bottom: 2px solid wheat;
         padding-bottom: 10px;
+
         &__title {
+          color: white;
           cursor: pointer;
-          > h4:hover {
-            font-size: 25px;
-            transition: all 200ms;
+          > h5:hover {
+            font-size: 20.5px;
+            transition: all 500ms;
           }
-        }
-        &__button {
         }
       }
     }

@@ -83,8 +83,8 @@ const DetailProfile = () => {
                     setImageURL(URL.createObjectURL(event.target.files[0]));
                   }}
                 />
-                <label for="upload" className="profile__picture">
-                  {userProfile && userProfile.images ? (
+                <label htmlFor="upload" className="profile__picture">
+                  {userProfile && userProfile.images !== "0" ? (
                     <img src={userProfile.images} alt="upload"></img>
                   ) : (
                     <img src={profile} alt="upload"></img>
@@ -103,7 +103,6 @@ const DetailProfile = () => {
         <div className="pr__edit">
           <tr>
             <td className="pr__label">
-              {" "}
               <label htmlFor="">Name</label>
             </td>
             <td>
@@ -115,6 +114,7 @@ const DetailProfile = () => {
                 name="name"
                 className="pr__input"
                 placeholder="Full Name"
+                value={userData !== null ? userData.name : ""}
               />
             </td>
           </tr>
@@ -163,7 +163,6 @@ const DetailProfile = () => {
           </tr>
           <tr>
             <td className="pr__label">
-              {" "}
               <label htmlFor="">Profile Picture</label>
             </td>
             <td>
