@@ -4,6 +4,7 @@
       width: 130px;
       height: 15vh;
       border-radius: 50%;
+      object-fit: cover;
       cursor: pointer;
     }
     &--selected {
@@ -90,8 +91,6 @@
   &__gender {
     display: flex;
     flex-direction: row;
-
-    // justify-content: space-around;
     padding-bottom: 10px;
     &__choose {
       margin: 25px 10px;
@@ -157,6 +156,7 @@
   width: 130px;
   height: 15vh;
   border-radius: 50%;
+  object-fit: cover;
 }
 
 .button-wrap {
