@@ -4,12 +4,14 @@ import {
   GET_CONTENT_BY_ID,
   POST_CONTENT,
   PUT_CONTENT,
+  GET_HISTORY_TRACKING,
 } from "../Action/actionTypes";
 
 const initialState = {
   content: [],
   message: "",
   video: "",
+  tracking: "",
 };
 
 const contentReducer = (state = initialState, action) => {
@@ -41,6 +43,11 @@ const contentReducer = (state = initialState, action) => {
       return {
         ...state,
         message: payload,
+      };
+    case GET_HISTORY_TRACKING:
+      return {
+        ...state,
+        tracking: payload,
       };
     default:
       return state;

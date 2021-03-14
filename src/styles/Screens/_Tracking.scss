@@ -1,3 +1,4 @@
+// @import url("https://unpkg.com/leaflet@1.5.1/dist/leaflet.css");
 .bg-container {
   margin: 40px;
   display: flex;
@@ -34,49 +35,77 @@
 //     align-items: center;
 //   }
 
-  .workout {
-    // background-image: url(../../assets/img/about/background-about.jpg);
-    background-size: cover;
-    height: 190vh;
-    width: 100%;
+.workout {
+  // background-image: url(../../assets/img/about/background-about.jpg);
+  background-size: cover;
+  height: 190vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: rgba($color: white, $alpha: 0.5);
+  &__content {
     display: flex;
     flex-direction: column;
-    align-items: center;
     flex-wrap: wrap;
-    background-color: rgba($color: white, $alpha: 0.5);
-    &__content {
+    align-items: center;
+    &__bottom {
+      // background-color: rgba($color: rgb(29, 25, 25), $alpha: 0.7);
+      margin-top: 100px;
       display: flex;
-      flex-direction: column;
-      flex-wrap: wrap;
+      flex-direction: row;
       align-items: center;
-      &__bottom {
-        // background-color: rgba($color: rgb(29, 25, 25), $alpha: 0.7);
-        margin-top: 100px;
-        display: flex;
-        flex-direction: row;
+
+      &__text {
+        padding: 50px;
+        font-weight: 700;
         align-items: center;
-      
-        &__text {
-          padding: 50px;
+        background-color: white;
+
+        > h2 {
           font-weight: 700;
           align-items: center;
-          background-color: white;
-
-          > h2 {
-            font-weight: 700;
-            align-items: center;
-            color: #f26931;
-          }
+          color: #f26931;
         }
-        &__pict {
-          width: 50%;
-          > img {
-            border-radius: 60px;
-            padding: 50px;
-            object-fit: cover;
-            width: 100%;
-          }
+      }
+      &__pict {
+        width: 50%;
+        > img {
+          border-radius: 60px;
+          padding: 50px;
+          object-fit: cover;
+          width: 100%;
         }
       }
     }
   }
+}
+
+.history-tracking-data-container {
+  display: flex;
+  flex-direction: column;
+
+  & .history-tracking-data {
+    width: 140px;
+    height: 105px;
+    // background-color: yellow;
+    border: 1px solid black;
+    margin: 5px 5px;
+    border-radius: 5px;
+    cursor: pointer;
+
+    & .date-tracking {
+      font-size: 8px;
+    }
+
+    & p {
+      font-size: 12px;
+      margin: 5px 3px;
+    }
+  }
+  & .history-tracking-data:hover {
+    border: 1px solid white;
+    border-radius: 0;
+  }
+}

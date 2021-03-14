@@ -4,6 +4,7 @@ import {
   GET_CONTENT_BY_ID,
   POST_CONTENT,
   PUT_CONTENT,
+  GET_HISTORY_TRACKING,
 } from "../Action/actionTypes";
 import axios from "axios";
 
@@ -89,6 +90,23 @@ export const deleteContent = (token, id) => (dispatch) => {
       dispatch({
         type: DELETE_CONTENT,
         payload: res,
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+export const getTracking = () => (dispatch) => {
+  const config = {
+    headers: { Authorization: localStorage.getItem("token") },
+  };
+  axios
+    .get(`/api/tracking`, config)
+    .then((res) => {
+      console.log("coba content by id =>", res);
+      dispatch({
+        type: GET_HISTORY_TRACKING,
+        payload: res.data.data,
       });
     })
     .catch((err) => {

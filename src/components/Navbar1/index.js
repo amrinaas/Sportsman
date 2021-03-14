@@ -128,6 +128,16 @@ const Navbars = () => {
                   <span className="nav-span">Contact Us</span>
                 </NavLink>
               </NavItem>
+
+              {userProfile === null ? (
+                ""
+              ) : userProfile.roles === "admin" ? (
+                <NavLink onClick={() => history.push("/admin-dashboard")}>
+                  <span className="nav-span">Admin Page</span>
+                </NavLink>
+              ) : (
+                ""
+              )}
             </Nav>
             <NavItem>
               {userProfile ? (

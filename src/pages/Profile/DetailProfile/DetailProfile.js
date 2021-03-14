@@ -17,14 +17,9 @@ import profile from "../../../assets/img/anonymous.jpg";
 
 const DetailProfile = () => {
   const userProfile = useSelector((state) => state.users.userProfile);
-
   const [imageData, setImageData] = useState(null);
   const [imageURL, setImageURL] = useState(null);
   const [userData, setUserData] = useState({});
-  const [gender, setGender] = useState("");
-
-  const dispatch = useDispatch();
-  const message = useSelector((state) => state.users.message);
 
   useEffect(() => {
     if (userProfile !== null) {
@@ -35,6 +30,10 @@ const DetailProfile = () => {
     }
   }, [userProfile]);
 
+  const [gender, setGender] = useState("");
+
+  const dispatch = useDispatch();
+  const message = useSelector((state) => state.users.message);
   const handleChange = (event) => {
     setUserData({
       ...userData,
@@ -55,7 +54,7 @@ const DetailProfile = () => {
 
   useEffect((res) => {
     dispatch(getUserData());
-    console.log("ini userProfile", userProfile);
+
     if (userProfile && userProfile.status === 200) {
       localStorage.setItem("token", res.data.data);
     }
@@ -74,6 +73,8 @@ const DetailProfile = () => {
     handleUploadImage();
     handleuserData();
   };
+  console.log("ini userProfile", userProfile);
+  console.log("user Data =>", userData);
 
   return (
     <>
