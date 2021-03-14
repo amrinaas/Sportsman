@@ -68,7 +68,8 @@ const Content = () => {
       </div>
       <div className="jumbotron-tips">
         <div className="container-tips">
-          <div className="tips-one">
+          {/* <div className="tips-one"> */}
+          <Card className="tips-card">
             <h4>HEALTH ASSESSMENT & FITNESS TESTING</h4>
             <p>
               Before you can start a training and nutritional plan Here is what
@@ -87,8 +88,9 @@ const Content = () => {
               <li>- Posture</li>
               <li>- Muscular Endurance</li>
             </ol>
-          </div>
-          <div className="tips-two">
+          </Card>
+          {/* <div className="tips-two"> */}
+          <Card className="tips-card">
             <h4>NUTRITIONAL ANALYSIS & PLAN</h4>
             <p>
               Honestly - 70% of losing weight comes down to your nutrition. If
@@ -97,7 +99,7 @@ const Content = () => {
               in the gym, you will not get the long lasting results you're
               looking for. I will give you individual nutritional guidance which
               :
-            </p>
+            
             <ol>
               <li>
                 - Doesn't require you to starve yourself or cut out carbs like a
@@ -112,8 +114,10 @@ const Content = () => {
                 - Doesn't require you to count calories or weigh your food.
               </li>
             </ol>
-          </div>
-          <div className="tips-three">
+            </p>
+          </Card>
+          {/* <div className="tips-three"> */}
+          <Card className="tips-card">
             <h4>FOOD SHOPPING COACHING</h4>
             <p>
               If you're going to start a lifestyle of healthy nutrition you need
@@ -127,7 +131,7 @@ const Content = () => {
               these things and making sure you're filling your fridge and
               cupboards with the right stuff.
             </p>
-          </div>
+          </Card>
         </div>
       </div>
 

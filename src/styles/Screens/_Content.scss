@@ -39,50 +39,64 @@
 }
 .writer-content {
   width: 70%;
-  height: 120px;
+  height: auto;
   margin: 20px auto;
+  position: relative;
 }
 
 .jumbotron-tips {
   background-image: url(../../assets/img/jumbotron/jumbotron-cnt.png);
-  height: 600px;
+  height: auto;
   background-size: cover;
   background-attachment: fixed;
   margin-top: 10px;
+  margin-bottom: 10px;
 
   .container-tips {
     position: relative;
-    width: 90%;
-    top: 40px;
-    margin: auto;
+    width: 100%;
+    // top: 40px;
     display: flex;
+    flex-direction: row;
+    align-items: center;
     justify-content: space-evenly;
     flex-wrap: wrap;
 
-    & .tips-one {
-      width: 30%;
+    & .tips-card {
+      width: 400px;
       height: 500px;
       background-color: rgba(196, 196, 196, 0.5);
       border-radius: 10px;
       padding: 10px;
+      margin: 20px;
       color: white;
+      align-items: center;
     }
-    & .tips-two {
-      width: 30%;
-      height: 500px;
-      background-color: rgba(196, 196, 196, 0.5);
-      border-radius: 10px;
-      padding: 10px;
-      color: white;
-    }
-    & .tips-three {
-      width: 30%;
-      height: 500px;
-      background-color: rgba(196, 196, 196, 0.5);
-      border-radius: 10px;
-      padding: 10px;
-      color: white;
-    }
+
+    // & .tips-one {
+    //   width: 30%;
+    //   height: 500px;
+    //   background-color: rgba(196, 196, 196, 0.5);
+    //   border-radius: 10px;
+    //   padding: 10px;
+    //   color: white;
+    // }
+    // & .tips-two {
+    //   width: 30%;
+    //   height: 500px;
+    //   background-color: rgba(196, 196, 196, 0.5);
+    //   border-radius: 10px;
+    //   padding: 10px;
+    //   color: white;
+    // }
+    // & .tips-three {
+    //   width: 30%;
+    //   height: 500px;
+    //   background-color: rgba(196, 196, 196, 0.5);
+    //   border-radius: 10px;
+    //   padding: 10px;
+    //   color: white;
+    // }
   }
 }
 
@@ -94,20 +108,23 @@
   width: 80%;
   height: auto;
   margin: 15px auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: space-evenly;
+  // flex-wrap: wrap;
 
   & .content-card {
     height: 200px;
     display: flex;
     margin: 10px;
-    justify-content: space-between;
 
     & .content-img {
       width: 250px;
       margin: 5px;
+    }
+    & .content-description {
+      height: auto;
+      position: relative;
     }
     & .start-button {
       color: rgb(26, 90, 228);

@@ -19,6 +19,7 @@ const All = () => {
 
   return (
     <>
+      <div className="content-container">
       {contents.length === 0 ? (
         <h4>Loading...</h4>
       ) : (
@@ -44,6 +45,7 @@ const All = () => {
             .reverse()}
         </>
       )}
+      </div>
     </>
   );
 };
