@@ -37,12 +37,12 @@ const LoginPage = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     NotificationManager.info("Loading", "", 3000);
-    dispatch(postSignIn(userData))
-    .then((res) => {
-    if (!res) {
-      NotificationManager.info("Email/Password is wrong", "", 1000);
-    }
-    });
+    dispatch(postSignIn(userData));
+    // .then((res) => {
+    //   if (!res) {
+    //     NotificationManager.info("Email/Password is wrong", "", 1000);
+    //   }
+    // });
   };
 
   useEffect(() => {
@@ -50,10 +50,12 @@ const LoginPage = () => {
       NotificationManager.error(message.data.message, "", 2000);
     } else if (message.status === 400) {
       NotificationManager.error(message.data.message, "", 2000);
+    } else if (message.status === 500) {
+      NotificationManager.error("Cannot Find User", "", 2000);
     }
   }, [message]);
 
-  // console.log("message =>", message);
+  console.log("message =>", message);
 
   const handleChange = (e) => {
     setUserData({

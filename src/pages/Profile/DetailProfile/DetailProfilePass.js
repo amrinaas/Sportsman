@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
-import { deleteAccount } from "../../../redux/Action/userAction";
 import { useHistory } from "react-router-dom";
 import _ from "lodash";
 import { useSelector, useDispatch } from "react-redux";
 import {
-  uploadImage,
-  putUserData,
+  deleteAccount,
+  putUserPassword,
   getUserData,
 } from "../../../redux/Action/userAction";
 
@@ -17,6 +16,7 @@ const DetailProfilePass = (props) => {
   const [modal, setModal] = useState(false);
 
   const toggle = () => setModal(!modal);
+  const userProfile = useSelector((state) => state.users.userProfile);
 
   const handleDeleteAccount = () => {
     dispatch(deleteAccount());
@@ -24,12 +24,20 @@ const DetailProfilePass = (props) => {
     history.push("/");
   };
 
-  const [userData, setUserData] = useState({
-    password: "",
-  });
+  const [userData, setUserData] = useState({});
+
+  useEffect(() => {
+    if (userProfile !== null) {
+      const name = userProfile.name;
+      setUserData({
+        name: name,
+        password: "",
+        confirmPassword: "",
+      });
+    }
+  }, [userProfile]);
 
   const dispatch = useDispatch();
-  const userProfile = useSelector((state) => state.users.userProfile);
 
   const handleChange = (event) => {
     setUserData({
@@ -39,12 +47,16 @@ const DetailProfilePass = (props) => {
   };
 
   const handleuserData = () => {
-    dispatch(putUserData(userData));
-    if ("password" == "") alert("Please Enter Password!");
-    else if ("confirmPassword" == "") alert("Please enter confirm password");
-    else if ("password" !== "confirmPassword")
+    if (userData.password == "") {
+      alert("Please Enter Password!");
+    } else if (userData.confirmPassword == "") {
+      alert("Please enter confirm password");
+    } else if (userData.password !== userData.confirmPassword) {
       alert("Password didn't match! Please try again");
-    else alert("Change password successful");
+    } else {
+      alert("Change password successful");
+      dispatch(putUserPassword(userData));
+    }
   };
 
   useEffect((res) => {

@@ -108,6 +108,12 @@ const userReducer = (state = initialState, action) => {
         ...state,
         message: action.payload,
       };
+    case PUT_USERDATA:
+      return {
+        ...state,
+        userProfile: action.payload.user,
+        message: action.payload.message,
+      };
     default:
       return state;
   }

@@ -16,16 +16,24 @@ import { Button } from "reactstrap";
 import profile from "../../../assets/img/anonymous.jpg";
 
 const DetailProfile = () => {
+  const userProfile = useSelector((state) => state.users.userProfile);
+
   const [imageData, setImageData] = useState(null);
   const [imageURL, setImageURL] = useState(null);
-  const [userData, setUserData] = useState({
-    name: "",
-  });
+  const [userData, setUserData] = useState({});
   const [gender, setGender] = useState("");
 
   const dispatch = useDispatch();
-  const userProfile = useSelector((state) => state.users.userProfile);
   const message = useSelector((state) => state.users.message);
+
+  useEffect(() => {
+    if (userProfile !== null) {
+      const name = userProfile.name;
+      setUserData({
+        name: name,
+      });
+    }
+  }, [userProfile]);
 
   const handleChange = (event) => {
     setUserData({
@@ -114,7 +122,7 @@ const DetailProfile = () => {
                 name="name"
                 className="pr__input"
                 placeholder="Full Name"
-                value={userData !== null ? userData.name : ""}
+                value={userData.name}
               />
             </td>
           </tr>

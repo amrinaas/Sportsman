@@ -17,6 +17,7 @@ import {
   // POST_FAVORITE,
   POST_EXERCISE,
   GET_EXERCISE,
+  PUT_USERPASSWORD,
 } from "./actionTypes";
 
 export const signUp = (payload, res) => {
@@ -163,6 +164,36 @@ export const putUserData = (userData) => (dispatch) => {
       }
       dispatch({
         type: PUT_USERDATA,
+        // payload: decoded,
+
+        payload: {
+          user: decoded,
+          message: res,
+        },
+      });
+      // alert("Update Data Success");
+      // window.location.reload(true);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+export const putUserPassword = (userData) => (dispatch) => {
+  const config = {
+    headers: { Authorization: localStorage.getItem("token") },
+  };
+  axios
+    .put(`/api/update`, userData, config)
+    .then((res) => {
+      console.log("putUserData => ", res);
+      localStorage.setItem("token", res.data.data[0]);
+      let decoded;
+      if (res.data.data && !_.isEmpty(res.data.data[0])) {
+        decoded = jwt_decode(res.data.data[0]);
+      }
+      dispatch({
+        type: PUT_USERPASSWORD,
         // payload: decoded,
 
         payload: {

@@ -24,7 +24,7 @@ const VideoContent = () => {
 
   useEffect(() => {
     dispatch(getContentById(token, id));
-  }, [dispatch, token, id]); 
+  }, [dispatch, token, id]);
 
   const handleBookmark = (title, id) => {
     const body = {
@@ -34,11 +34,11 @@ const VideoContent = () => {
     dispatch(bookmarkVideo(token, body));
   };
 
-  useEffect(() => {
-    if (message.status === 200) {
-      NotificationManager.success(message.data.message, "", 3000);
-    }
-  }, [message]);
+  // useEffect(() => {
+  //   if (message.status === 200) {
+  //     NotificationManager.success(message.data.message, "", 3000);
+  //   }
+  // }, [message]);
 
   console.log("ini video =>", videos);
   console.log("message =>", message);

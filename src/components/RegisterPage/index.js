@@ -45,7 +45,6 @@ const RegisterPage = () => {
     if (message.status === 400) {
       NotificationManager.error(message.data.error, "", 3000);
     } else if (message.status === 200) {
-      NotificationManager.success(message.data.message, "", 3000);
       history.push("/login");
     }
   }, [message, history]);
