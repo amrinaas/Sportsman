@@ -1,89 +1,90 @@
-
 .information-body {
     margin-top: 15px;
-}
-.information {
+  }
+  
+  .information {
     margin-top: 20px;
     margin: 0px;
     display: flex;
+    //   flex-wrap: wrap;
+    //   position: relative;
     // justify-content:space-evenly;
-}
-.information__left {
-    display: flex;
-    // justify-content: left;
-    flex-wrap: wrap;
-    width: 250px;
-    padding-right: 0px;
-    border: 0px;
-}
-.information__left__uppictcontainer {
-    margin-right: 5px;
-    padding: 0px;
-}
-.information__left__downpictcontainer {
-    margin-right: 5px;
-    padding: 0px;
-}
-.left-up-pict {
-    width: 250px;
-    height: 200px;
-}
-.left-down-pict {
-    width: 250px;
-    height: 200px;
-}
-
-.information__right {
-    // margin-left: -28px;
-    display: flex;
-    // flex-direction: row;
-    // flex-wrap: wrap;
-    justify-content: right;
-    width: 100%;
-    margin-right: 0px;
-}
-.information__right__text {
-    // width:500px;
-    // display: flex;
-    // flex-direction: row;
-    // justify-content: left;
-    background-color: #F3F3F3;
-    margin: 0px 5px;
-    height:405px;
-    font-size: 18px;
-    font-family: Montserrat;
-    h1 {
+  
+    &__left {
+      width: 400px;
+      height: 400px;
+      &__uppictcontainer {
+        width: 400px;
+        height: 130px;
+  
+        //   height: fit-content;
+        &__left-up-pict {
+          width: 100%;
+        }
+      }
+      &__downpictcontainer {
+        &__left-down-pict {
+          padding-top: 70px;
+          width: 100%;
+        }
+      }
+    }
+    &__middle {
+      &__text {
+        width: 300px;
+        height: 467px;
+        // width:500px;
+        // display: flex;
+        // flex-direction: row;
+        // justify-content: left;
+        background-color: #f3f3f3;
+        margin: 0px 5px;
+        //   height: fit-content;
+        font-size: 18px;
         font-family: Montserrat;
-        line-height: 40px;
-        font-weight: 700;
-        font-size: 31px;
-        margin: 10px 10px;
+        > h1 {
+          font-family: Montserrat;
+          // line-height: 40px;
+          font-weight: 700;
+          font-size: 31px;
+          margin: 0px 10px;
+          text-align: center;
+        }
+        > p {
+          text-align: center;
+          margin-top: 30px;
+          margin-left: 10px;
+          margin-right: 10px;
+        }
+      }
     }
-    p {
-        margin-top: 30px;
-        margin-left:10px;
-        margin-right: 10px;
+    &__right {
+      width: 100%;
+  
+      &__pictcontainer {
+        //   height: 100.5vh;
+  
+        &__right-pict {
+          height: 71vh;
+          // height: 25vh;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+      // width: 800px;
     }
-}
-
-.information__right__pictcontainer {
-    width: 800px;
-}
-.right-pict {
-    width: 750px;
-    height:405px;
-    
-}
-.leafletmap {
-    margin-top: 70px;
-}
-.map {
+  }
+  
+  .leafletmap {
+    margin-top: 50px;
+  }
+  .map {
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
-
-.text__container {
+  }
+  
+  .text__container {
     background-color: white;
     width: 50%;
     margin: auto;
@@ -95,15 +96,77 @@
     margin-top: 20px;
     margin-bottom: 20px;
     h1 {
-        font-family: Montserrat;
-        size: 48px;
-        font-weight: 700;
-        margin-bottom: 20px;
+      font-family: Montserrat;
+      size: 48px;
+      font-weight: 700;
+      margin-bottom: 20px;
     }
-}
-.leaflet-container {
+  }
+  .leaflet-container {
     width: 100%;
     height: 60vh;
     // margin: auto;
+  }
+  
+  @media (max-width: 1024px) {
+    .information {
+      flex-direction: column;
+      // margin-top: 20px;
+      // margin: 0px;
+      // display: flex;
+      &__left {
+        margin: auto;
+        width: 400px;
+        height: 550px;
+        &__uppictcontainer {
+          width: 400px;
+          height: 200px;
+          &__left-up-pict {
+            width: 100%;
+          }
+        }
+        &__downpictcontainer {
+          &__left-down-pict {
+            width: 100%;
+          }
+        }
+      }
+      &__middle {
+        margin: auto;
+  
+        &__text {
+          width: 300px;
+          height: 467px;
+          background-color: #f3f3f3;
+          margin: 0px 5px;
+          font-size: 18px;
+          font-family: Montserrat;
+          > h1 {
+            font-family: Montserrat;
+            font-weight: 700;
+            font-size: 31px;
+            margin: 0px 10px;
+          }
+          > p {
+            margin-top: 30px;
+            margin-left: 10px;
+            margin-right: 10px;
+          }
+        }
+      }
+      &__right {
+        margin: auto;
+  
+        width: 100%;
+  
+        &__pictcontainer {
+          &__right-pict {
+            height: 71vh;
+            width: 100%;
+            object-fit: cover;
+          }
+        }
+      }
+    }
   }
   

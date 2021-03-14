@@ -1,82 +1,81 @@
 .jumbotron-down {
-  background-color: #363636;
-  // background-image: url(../img/jumbotron/image1.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 550px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-
-  & button {
-    width: 346px;
-    height: 46px;
-    text-align: center;
-    border: none;
-    margin: 25px 25px;
-    border-radius: 35px;
-    cursor: pointer;
-    outline: none;
-  }
-
-  & h1 {
-    color: white;
-    margin-top: 70px;
-    margin-bottom: 30px;
-  }
-  & a {
-    text-decoration: none;
-    color: white;
-    margin-bottom: 160px;
-  }
-  & p {
-    color: white;
-    font-size: 13px;
-  }
-
-  .fb {
-    background-color: #4859ef;
-    color: white;
-  }
-
-  .fb:hover {
-    background-color: #0c22eb;
-  }
-
-  .google {
-    background-color: #d93f01;
-    color: white;
-  }
-  .google:hover {
-    background-color: #a31313;
-  }
-}
-
-.subscription {
-  background-color: #363636;
-  height: 208px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-
-  & h3 {
-    color: white;
-  }
-
-  .explore-button button {
-    background-color: Transparent;
+    background-color: #363636; 
+    // background-image: url(../img/jumbotron/image1.png);
     background-repeat: no-repeat;
-    border: 2px solid rgb(109, 109, 109);
-    height: 46px;
-    width: 100px;
-    border-radius: 35px;
-    cursor: pointer;
-    overflow: hidden;
-    outline: none;
-    font-size: 18px;
-    color: white;
+    background-size: cover;
+    height: 550px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  
+    & button {
+      width: 346px;
+      height: 46px;
+      text-align: center;
+      border: none;
+      margin: 25px 25px;
+      border-radius: 35px;
+      cursor: pointer;
+      outline: none;
+    }
+  
+    & h1 {
+      color: white;
+      margin-top: 70px;
+      margin-bottom: 30px;
+    }
+    & a {
+      text-decoration: none;
+      color: white;
+      margin-bottom: 160px;
+    }
+    & p {
+      color: white;
+      font-size: 13px;
+    }
+  
+    .fb {
+      background-color: #4859ef;
+      color: white;
+    }
+  
+    .fb:hover {
+      background-color: #0c22eb;
+    }
+  
+    .google {
+      background-color: #d93f01;
+      color: white;
+    }
+    .google:hover {
+      background-color: #a31313;
+    }
   }
-}
-
-// jumbotron down
+  
+  .subscription {
+    background-color: #363636;
+    height: 208px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  
+    & h3 {
+      color: white;
+    }
+  
+    .explore-button button {
+      background-color: Transparent;
+      background-repeat: no-repeat;
+      border: 2px solid rgb(109, 109, 109);
+      height: 46px;
+      width: 100px;
+      border-radius: 35px;
+      cursor: pointer;
+      overflow: hidden;
+      outline: none;
+      font-size: 18px;
+      color: white;
+    }
+  }
+  
