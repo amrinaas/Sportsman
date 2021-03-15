@@ -32,9 +32,12 @@ const Features = () => {
         <div className="first-body__text">
           <h1>Track the way you want</h1>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
-            posuere sit amet erat nec ullamcorper. Nunc luctus maximus erat a
-            imperdiet.
+            Energise your routine with our growing library of workouts led by
+            our world-class Sportsman Master Trainers. With Sportsman, you get
+            access to over 190 free workouts across strength, endurance, yoga
+            and mobility targeting your abs, arms, shoulders, glutes and legs.
+            Sessions range from 15–45 minutes and are designed to help you see
+            and feel results.
           </p>
         </div>
       </div>
@@ -42,9 +45,11 @@ const Features = () => {
         <div className="first-body__text2">
           <h1>Various workout mode</h1>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
-            posuere sit amet erat nec ullamcorper. Nunc luctus maximus erat a
-            imperdiet.
+            Workout Collections offer a set of recommended workouts and guidance
+            from our Sportsman Master Trainers. They are a great way to discover
+            new workouts, try community favourites or simply find the right
+            workout for you and your daily routine. Here's a few of our
+            favourites.
           </p>
         </div>
         <img src={secondBody} alt="" className="first-body__body2" />
@@ -56,9 +61,9 @@ const Features = () => {
         <div className="first-body__text">
           <h1>Tailored training videos</h1>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
-            posuere sit amet erat nec ullamcorper. Nunc luctus maximus erat a
-            imperdiet.
+            Earn badges and trophies for reaching workout milestones like total
+            workouts completed, workout frequency, weekly and monthly streaks,
+            and more.
           </p>
         </div>
       </div>

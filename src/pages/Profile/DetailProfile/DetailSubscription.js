@@ -14,41 +14,39 @@ const DetailSubscription = () => {
     <div>
       <h2>Your Sportsman Journey Starts Now</h2>
       <h4>Choose the plan that fits you best and get started</h4>
-      <ButtonGroup size="lg">
-        <Button color="primary" outline>
-          3 Months
-        </Button>
-        <Button color="primary" outline>
-          6 Months
-        </Button>
-        <Button color="primary" outline>
-          12 Months
-        </Button>
-      </ButtonGroup>
       <Row>
         <Col sm="6">
-          <Card body className="subscription">
-            <CardTitle tag="h5">Training Coach</CardTitle>
+          <Card body>
+            <CardTitle tag="h5" style={{ textAlign: "center" }}>
+              Training Coach
+            </CardTitle>
             <CardText>
               Build muscle or burn fat with high-intensity training
             </CardText>
-            <h3>$1.38</h3>
-            <span>/week</span>
+            <div className="price">
+              <h3>
+                $1.38 <span>/week</span>
+              </h3>
+            </div>
             <p>Billed every 3 months</p>
-            <Button>Get Training Coach</Button>
+            <Button className="mt-4">Get Training Coach</Button>
           </Card>
         </Col>
         <Col sm="6">
           <Card body>
-            <CardTitle tag="h5">Training & Nutrition Bundle</CardTitle>
+            <CardTitle tag="h5" style={{ textAlign: "center" }}>
+              Training & Nutrition
+            </CardTitle>
             <CardText>
-              Combine Training and Nutrition Coaches to train smarter and eat
-              better
+              Combine Training and Nutrition Coaches to eat better
             </CardText>
-            <h3>$2.08</h3>
-            <span>week</span>
+            <div className="price">
+              <h3>
+                $2.08 <span>/week</span>
+              </h3>
+            </div>
             <p>Billed every 3 months</p>
-            <Button>Get Coach Bundle</Button>
+            <Button className="mt-4">Get Coach Bundle</Button>
           </Card>
         </Col>
       </Row>

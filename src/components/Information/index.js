@@ -28,9 +28,9 @@ function information() {
           <div className="information__middle__text">
             <h1>Various Workout Mode</h1>
             <p>
-              What is Lorem Ipsum Lorem Ipsum is simply dummy text of the
-              printing and typesetting industry Lorem Ipsum has been the
-              industry's standard dummy text.
+              Start training with a personal plan that guides you—while
+              adjusting to your progress, schedule and other activities. With
+              Sportsman, you get access to four 4–6 week training plans.
             </p>
           </div>
         </div>

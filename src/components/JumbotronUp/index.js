@@ -51,9 +51,11 @@ function JumbotronUp(props) {
           <Container className="body__text">
             <h1>It all starts with the best tracking</h1>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
-              posuere sit amet erat nec ullamcorper. Nunc luctus maximus erat a
-              imperdiet.
+              Sportsman helps you reach your fitness goals with expertly
+              designed workouts from our world-class Sportsman Master Trainers.
+              Sportsman is perfect for training at home, in the gym or on the
+              road, with everything from bodyweight-only to full-equipment
+              workouts for everyone at all fitness levels.
             </p>
           </Container>
         </Jumbotron>

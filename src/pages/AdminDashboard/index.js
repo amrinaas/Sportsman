@@ -16,17 +16,20 @@ const AdminDashboard = () => {
         <div class="jumbotron-dashboard-admin">
           <h1>WELCOME ADMIN</h1>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
-            error vitae provident amet excepturi nostrum? Nisi explicabo,
-            fugiat, id quo repudiandae et tempore ipsam soluta illo eius quis
-            accusantium. Exercitationem.
+            Start training with a personal plan that guides you—while adjusting
+            to your progress, schedule and other activities. With Sportsman, you
+            get access to four 4–6 week training plans. Whether you have access
+            to a full gym or are training from the comfort of your home, there's
+            a routine that fits you and your schedule so that you can reach your
+            goals.
           </p>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore,
-            minima quisquam maiores error nisi reprehenderit placeat.
-            Perspiciatis minima odio corporis reprehenderit vitae adipisci
-            mollitia? Debitis deleniti iste dolore iusto quo sint itaque
-            possimus omnis recusandae doloremque! Quaerat maiores omnis ullam.
+            Energise your routine with our growing library of workouts led by
+            our world-class Sportsman Master Trainers. With Sportsman, you get
+            access to over 190 free workouts across strength, endurance, yoga
+            and mobility targeting your abs, arms, shoulders, glutes and legs.
+            Sessions range from 15–45 minutes and are designed to help you see
+            and feel results.
           </p>
         </div>
       </Row>
