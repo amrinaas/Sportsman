@@ -3,12 +3,8 @@ import { getContentById } from "../../redux/Action/contentAction";
 import { useHistory, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Navbar from "../../components/Navbar1";
-// import { postFavorite } from "../../redux/Action/userAction";
 import { bookmarkVideo } from "../../redux/Action/bookmarkAction";
-import {
-  NotificationContainer,
-  NotificationManager,
-} from "react-notifications";
+import { NotificationContainer } from "react-notifications";
 import "react-notifications/lib/notifications.css";
 
 const VideoContent = () => {
@@ -19,6 +15,7 @@ const VideoContent = () => {
   const dispatch = useDispatch();
   const videos = useSelector((state) => state.content.video);
   const message = useSelector((state) => state.bookmark.message);
+  const status = useSelector((state) => state.content.message);
   const token = localStorage.getItem("token");
   const history = useHistory();
 
@@ -27,21 +24,15 @@ const VideoContent = () => {
   }, [dispatch, token, id]);
 
   const handleBookmark = (title, id) => {
+    if (status.status === 200) {
+      window.location.reload();
+    }
     const body = {
       content_id: id,
       tittle: title,
     };
     dispatch(bookmarkVideo(token, body));
   };
-
-  // useEffect(() => {
-  //   if (message.status === 200) {
-  //     NotificationManager.success(message.data.message, "", 3000);
-  //   }
-  // }, [message]);
-
-  console.log("ini video =>", videos);
-  console.log("message =>", message);
 
   return (
     <>
@@ -74,7 +65,7 @@ const VideoContent = () => {
                     <h6
                       onClick={() =>
                         history.push({
-                          pathname: `video/${item.videoUrl}`,
+                          pathname: `/video/${item.videoUrl}`,
                           title: videos.title,
                         })
                       }

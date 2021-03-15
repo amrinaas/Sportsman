@@ -76,9 +76,7 @@ const Tracking = () => {
             >
               <p className="date-tracking">{track.createdAt}</p>
               <p>Distance : {track.distance} km</p>
-              <p>
-                Time &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : {track.time} seconds
-              </p>
+              <p>Time &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : {track.time} m</p>
               <p>Speed &nbsp;&nbsp;&nbsp;&nbsp;: {track.speed}</p>
             </div>
           ))

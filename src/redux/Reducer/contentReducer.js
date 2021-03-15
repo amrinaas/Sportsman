@@ -25,7 +25,8 @@ const contentReducer = (state = initialState, action) => {
     case GET_CONTENT_BY_ID:
       return {
         ...state,
-        video: payload,
+        video: payload.video,
+        message: payload.message,
       };
     case POST_CONTENT:
       return {

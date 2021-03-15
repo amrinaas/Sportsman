@@ -35,7 +35,10 @@ export const getContentById = (token, id) => (dispatch) => {
       console.log("coba content by id =>", res);
       dispatch({
         type: GET_CONTENT_BY_ID,
-        payload: res.data,
+        payload: {
+          video: res.data,
+          message: res,
+        },
       });
     })
     .catch((err) => {
