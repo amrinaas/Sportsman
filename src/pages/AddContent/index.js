@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-// import Navbar from "../../components/Navbar1";
 import { useDispatch, useSelector } from "react-redux";
 import {
   Container,
@@ -19,15 +18,6 @@ const AddContent = () => {
   useEffect(() => {
     document.title = "Add Content";
   }, []);
-
-  // const [number, setNumber] = useState(1);
-
-  // const [inputList, setInputList] = useState([
-  //   {
-  //     url: "",
-  //     timer: "",
-  //   },
-  // ]);
 
   const [input, setInput] = useState({
     title: "",
@@ -80,23 +70,10 @@ const AddContent = () => {
       setAlert(message.message);
     }
   }, [message]);
-  // const handleAddInput = () => {
-  //   setInputList([...inputList, { url: "", timer: "" }]);
-  //   setNumber(number + 1);
-  // };
-  // const handleRemoveInput = (i) => {
-  //   const list = [...inputList];
-  //   list.splice(i, 1);
-  //   setInputList(list);
-  // };
-  // console.log("input List =>", inputList);
 
-  console.log("input =>", input);
-  console.log("Message =>", message);
   return (
     <>
       <Row>
-        {/* <Navbar /> */}
         <Col md="3">
           <Sidebar />
         </Col>
@@ -116,9 +93,7 @@ const AddContent = () => {
                   <Label for="exampleEmail">Title</Label>
                   <Input
                     onChange={(e) => handleChangeInput(e)}
-                    // name="title"
                     name={`title`}
-                    // value={inp.title}
                     placeholder="Title"
                     type="text"
                   />
@@ -127,9 +102,7 @@ const AddContent = () => {
                   <Label for="exampleEmail">Image</Label>
                   <Input
                     onChange={(e) => handleChangeInput(e)}
-                    // name="title"
                     name="image"
-                    // value={inp.image}
                     placeholder="Image"
                     type="text"
                   />
@@ -149,9 +122,7 @@ const AddContent = () => {
                   <Label for="exampleEmail">Time</Label>
                   <Input
                     onChange={(e) => handleChangeInput(e)}
-                    // name="title"
                     name="time"
-                    // value={inp.image}
                     placeholder="Time"
                     type="text"
                   />
@@ -160,9 +131,7 @@ const AddContent = () => {
                   <Label for="exampleEmail">Equipment</Label>
                   <Input
                     onChange={(e) => handleChangeInput(e)}
-                    // name="title"
                     name="equipment"
-                    // value={inp.image}
                     placeholder="Time"
                     type="text"
                   />
@@ -248,9 +217,7 @@ const AddContent = () => {
                   <Label for="exampleEmail">Url 1</Label>
                   <Input
                     onChange={(e) => handleChangeInput(e)}
-                    // name="title"
                     name="url1"
-                    // value={inp.image}
                     placeholder="Url 1"
                     type="text"
                   />
@@ -259,9 +226,7 @@ const AddContent = () => {
                   <Label for="exampleEmail">Time 1</Label>
                   <Input
                     onChange={(e) => handleChangeInput(e)}
-                    // name="title"
                     name="time1"
-                    // value={inp.image}
                     placeholder="Time"
                     type="text"
                   />
@@ -272,9 +237,7 @@ const AddContent = () => {
                   <Label for="exampleEmail">Url 2</Label>
                   <Input
                     onChange={(e) => handleChangeInput(e)}
-                    // name="title"
                     name="url2"
-                    // value={inp.image}
                     placeholder="Url 2"
                     type="text"
                   />
@@ -283,9 +246,7 @@ const AddContent = () => {
                   <Label for="exampleEmail">Time 2</Label>
                   <Input
                     onChange={(e) => handleChangeInput(e)}
-                    // name="title"
                     name="time2"
-                    // value={inp.image}
                     placeholder="Time 2"
                     type="text"
                   />
@@ -296,9 +257,7 @@ const AddContent = () => {
                   <Label for="exampleEmail">Url 3</Label>
                   <Input
                     onChange={(e) => handleChangeInput(e)}
-                    // name="title"
                     name="url3"
-                    // value={inp.image}
                     placeholder="Url 3"
                     type="text"
                   />
@@ -307,9 +266,7 @@ const AddContent = () => {
                   <Label for="exampleEmail">Time 3</Label>
                   <Input
                     onChange={(e) => handleChangeInput(e)}
-                    // name="title"
                     name="time3"
-                    // value={inp.image}
                     placeholder="Time 3"
                     type="text"
                   />
@@ -320,9 +277,7 @@ const AddContent = () => {
                   <Label for="exampleEmail">Url 4</Label>
                   <Input
                     onChange={(e) => handleChangeInput(e)}
-                    // name="title"
                     name="url4"
-                    // value={inp.image}
                     placeholder="Url 4"
                     type="text"
                   />
@@ -331,9 +286,7 @@ const AddContent = () => {
                   <Label for="exampleEmail">Time 4</Label>
                   <Input
                     onChange={(e) => handleChangeInput(e)}
-                    // name="title"
                     name="time4"
-                    // value={inp.image}
                     placeholder="Time 4"
                     type="text"
                   />
@@ -344,9 +297,7 @@ const AddContent = () => {
                   <Label for="exampleEmail">Url 5</Label>
                   <Input
                     onChange={(e) => handleChangeInput(e)}
-                    // name="title"
                     name="url5"
-                    // value={inp.image}
                     placeholder="Url 5"
                     type="text"
                   />
@@ -355,61 +306,13 @@ const AddContent = () => {
                   <Label for="exampleEmail">Time 5</Label>
                   <Input
                     onChange={(e) => handleChangeInput(e)}
-                    // name="title"
                     name="time5"
-                    // value={inp.image}
                     placeholder="Time 5"
                     type="text"
                   />
                 </FormGroup>
               </Row>
-              {/* {inputList.map((inp, i) => {
-                return (
-                  <>
-                    <Row>
-                      <FormGroup>
-                        <Label for="examplePassword">URL</Label>
-                        <Input
-                          onChange={(e) => handleChangeUrl(e, i)}
-                          // value={inp.url}
-                          name={`url${number}`}
-                          type="text"
-                          placeholder="URL"
-                        />
-                      </FormGroup>
-                      <FormGroup className="ml-4">
-                        <Label for="examplePassword">Timer</Label>
-                        <Input
-                          onChange={(e) => handleChangeUrl(e, i)}
-                          // value={inp.timer}
-                          name={`timer${number}`}
-                          type="text"
-                          placeholder="Timer"
-                        />
-                      </FormGroup>
-                    </Row>
-                    {inputList.length !== 1 && (
-                      <Button
-                        outline
-                        color="danger"
-                        className="mr-2 ml-1  "
-                        onClick={() => handleRemoveInput(i)}
-                      >
-                        <i className="fas fa-minus-circle"></i>
-                      </Button>
-                    )}
-                    {inputList.length - 1 === i && (
-                      <Button
-                        outline
-                        color="primary"
-                        onClick={() => handleAddInput(i)}
-                      >
-                        <i className="fas fa-plus-circle"></i>
-                      </Button>
-                    )}
-                  </>
-                );
-              })} */}
+
               <br />
               <Button outline color="success" className="col-md-4 mt-2 mb-2">
                 Submit

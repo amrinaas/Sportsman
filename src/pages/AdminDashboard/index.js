@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-// import Navbar from "../../components/Navbar1";
 import { Row, Col } from "reactstrap";
 import Sidebar from "../../components/Sidebar";
 

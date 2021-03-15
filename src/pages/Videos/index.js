@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-// import { useParams } from "react-router-dom";
 import YouTube from "react-youtube";
-// import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import Navbar from "../../components/Navbar2";
 import { useDispatch, useSelector } from "react-redux";
 import { postExercise } from "../../redux/Action/userAction";
@@ -12,11 +10,6 @@ import {
 } from "react-notifications";
 
 const Videos = (props) => {
-  // const { id } = useParams();
-  // let [count, setCount] = useState(5);
-
-  // const maxCount = 0;
-
   useEffect(() => {
     document.title = "Video";
   }, []);
@@ -32,7 +25,6 @@ const Videos = (props) => {
     },
   };
   const onReady = (e) => {
-    // console.log("video => ", e.target.playerInfo.videoData.title);
     setVideoTitle(e.target.playerInfo.videoData.title);
     e.target.playVideo();
     setTimeout(function () {
@@ -71,7 +63,6 @@ const Videos = (props) => {
     updateMs++;
     return setTime({ ms: updateMs, s: updateS, m: updateM, h: updateH });
   };
-  // const history = updateM * 60 + updateS;
 
   const handleClickStart = () => {
     run();
@@ -84,7 +75,6 @@ const Videos = (props) => {
       content: title,
       video: videoTitle,
       time: `${updateH}:${updateM}:${updateS}`,
-      // time: "tes",
     };
     clearInterval(interv);
     dispatch(postExercise(body));
@@ -95,10 +85,6 @@ const Videos = (props) => {
       NotificationManager.success(message.data.message);
     }
   }, [message]);
-
-  console.log("message =>", message);
-  // console.log("props =>", title);
-  // console.log("Video Title =>", videoTitle);
 
   return (
     <>

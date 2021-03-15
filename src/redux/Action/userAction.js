@@ -14,7 +14,6 @@ import {
   GOOGLE_AUTH,
   DELETE_ACCOUNT,
   GET_USERDATA,
-  // POST_FAVORITE,
   POST_EXERCISE,
   GET_EXERCISE,
   PUT_USERPASSWORD,
@@ -31,12 +30,9 @@ export const postSignUp = (body) => (dispatch) => {
   axios
     .post(`api/register`, body)
     .then((res) => {
-      console.log("ini res =>", res);
-      // const decoded = jwt_decode(res.data.data.token);
       dispatch(signUp(res));
     })
     .catch((err) => {
-      // console.log("error ==>", err.response);
       dispatch({
         type: MESSAGE_ERROR,
         payload: err.response,
@@ -62,7 +58,6 @@ export const postSignIn = (body) => (dispatch) => {
   return axios
     .post(`api/login`, body)
     .then((res) => {
-      console.log("ini res =>", res);
       const decoded = jwt_decode(res.data.data.token);
       dispatch(signIn(res.data.data));
       localStorage.setItem("userData", JSON.stringify(decoded));
@@ -71,7 +66,6 @@ export const postSignIn = (body) => (dispatch) => {
       return true;
     })
     .catch((err) => {
-      // console.log("error ==>", err.response);
       dispatch({
         type: MESSAGE_ERROR,
         payload: err.response,
@@ -122,13 +116,6 @@ export const signOut = () => (dispatch) => {
   });
 };
 
-// export const setDataToken = () => (dispatch) => {
-// 	dispatch({
-// 		type: SET_TOKEN,
-// 		payload: localStorage.getItem('token'),
-// 	});
-// };
-
 export const uploadImage = (body) => (dispatch) => {
   const config = {
     headers: {
@@ -156,7 +143,6 @@ export const putUserData = (userData) => (dispatch) => {
   axios
     .put(`/api/update`, userData, config)
     .then((res) => {
-      console.log("putUserData => ", res);
       localStorage.setItem("token", res.data.data[0]);
       let decoded;
       if (res.data.data && !_.isEmpty(res.data.data[0])) {
@@ -164,15 +150,12 @@ export const putUserData = (userData) => (dispatch) => {
       }
       dispatch({
         type: PUT_USERDATA,
-        // payload: decoded,
 
         payload: {
           user: decoded,
           message: res,
         },
       });
-      // alert("Update Data Success");
-      // window.location.reload(true);
     })
     .catch((err) => {
       console.log(err);
@@ -186,7 +169,6 @@ export const putUserPassword = (userData) => (dispatch) => {
   axios
     .put(`/api/update`, userData, config)
     .then((res) => {
-      console.log("putUserData => ", res);
       localStorage.setItem("token", res.data.data[0]);
       let decoded;
       if (res.data.data && !_.isEmpty(res.data.data[0])) {
@@ -194,15 +176,12 @@ export const putUserPassword = (userData) => (dispatch) => {
       }
       dispatch({
         type: PUT_USERPASSWORD,
-        // payload: decoded,
 
         payload: {
           user: decoded,
           message: res,
         },
       });
-      // alert("Update Data Success");
-      // window.location.reload(true);
     })
     .catch((err) => {
       console.log(err);
@@ -245,7 +224,6 @@ export const getUserData = () => (dispatch) => {
   axios
     .get(`/api/get`, config)
     .then((res) => {
-      console.log("ini get user data RIRI", res.data);
       dispatch({
         type: GET_USERDATA,
         payload: res.data,
@@ -281,7 +259,6 @@ export const postExercise = (body) => (dispatch) => {
   axios
     .post(`/api/history`, body, config)
     .then((res) => {
-      console.log("ini exercise =>", res);
       if (res.status === 200) {
         dispatch({
           type: POST_EXERCISE,

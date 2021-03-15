@@ -73,8 +73,6 @@ const DetailProfile = () => {
     handleUploadImage();
     handleuserData();
   };
-  console.log("ini userProfile", userProfile);
-  console.log("user Data =>", userData);
 
   return (
     <>

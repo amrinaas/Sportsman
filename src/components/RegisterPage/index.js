@@ -35,10 +35,8 @@ const RegisterPage = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log("Submit Register");
     dispatch(postSignUp(userData));
     NotificationManager.info("Loading", "", 3000);
-    // history.push("/login");
   };
 
   useEffect(() => {
@@ -49,12 +47,7 @@ const RegisterPage = () => {
     }
   }, [message, history]);
 
-  console.log("userData =>", userData);
-  console.log("data =>", data);
-  console.log("message =>", message);
-
   const handleChange = (e) => {
-    console.log("log handle change");
     setUserData({
       ...userData,
       [e.target.name]: e.target.value,

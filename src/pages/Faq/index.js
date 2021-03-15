@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Collapse, CardBody, Card, Col, Container, Row } from "reactstrap";
-import Navbar from "../../components/Navbar";
+import Navbar from "../../components/Navbar2";
 
 const Faq = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = (e) => {
-    // e.preventDefault();
-    console.log(e.target.className);
-    // setIsOpen(!isOpen);
     e.target.className === "1" ? setIsOpen(!isOpen) : setIsOpen(isOpen);
   };
 

@@ -47,13 +47,9 @@ const UpdateContent = () => {
     dispatch(getContentById(token, id));
   }, [dispatch, token, id]);
 
-  console.log("get one input =>", input.video);
-  console.log("get one message =>", message);
-
   return (
     <>
       <Row>
-        {/* <Navbar /> */}
         <Col md="3">
           <Sidebar />
         </Col>

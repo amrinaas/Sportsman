@@ -43,7 +43,6 @@ const Navbars = () => {
   const image = useSelector((state) => state.users.uploadImg);
 
   const page = window.location.pathname.substring(1);
-  console.log(page);
 
   const handleHome = () => {
     history.push("/");
@@ -88,7 +87,6 @@ const Navbars = () => {
 
   useEffect((res) => {
     dispatch(getUserData());
-    console.log("ini userProfile", userProfile);
     if (userProfile && userProfile.status === 200) {
       localStorage.setItem("token", res.data.data);
     }

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-// import Navbar from "../../components/Navbar1";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { Row, Col, Table, Button } from "reactstrap";
@@ -20,10 +19,8 @@ const AdminContent = () => {
   useEffect(() => {
     dispatch(getContent(token));
   }, [dispatch, token]);
-  console.log("message =>", message);
 
-  const handleDelete = (id) => { 
-    // history.push(`admin-content/${id}`);
+  const handleDelete = (id) => {
     dispatch(deleteContent(token, id));
   };
 

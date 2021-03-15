@@ -72,16 +72,6 @@ const VideoContent = () => {
                     >
                       Play
                     </h6>
-                    {/* <button
-											onClick={() =>
-												handleBookmark(
-													video._id
-												)
-											}
-										>
-											{" "}
-											Bookmark Video
-										</button> */}
                   </div>
                 </div>
               </div>

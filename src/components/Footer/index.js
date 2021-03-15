@@ -7,11 +7,6 @@ import appStore from "../../assets/img/logo/appstore.png";
 import { useHistory } from "react-router-dom";
 
 const Footer = () => {
-  const history = useHistory();
-
-  //   const handleContact = () => {
-  //     history.push("/contactus");
-  //   };
   return (
     <>
       <div className="footer-app">

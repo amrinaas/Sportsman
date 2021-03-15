@@ -32,9 +32,6 @@ const OnBoarding = () => {
   };
 
   useEffect(() => {
-    console.log("ini gender", gender);
-    console.log("ini level", level);
-    console.log("ini boarding", boarding);
     if (boarding.status === 200) {
       history.push("/");
     }

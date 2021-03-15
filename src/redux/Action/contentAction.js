@@ -15,7 +15,6 @@ export const getContent = (token) => (dispatch) => {
   axios
     .get(`api/content/all`, config)
     .then((res) => {
-      console.log("coba", res);
       dispatch({
         type: GET_CONTENT,
         payload: res.data,
@@ -32,7 +31,6 @@ export const getContentById = (token, id) => (dispatch) => {
   axios
     .get(`/api/content/${id}`, config)
     .then((res) => {
-      console.log("coba content by id =>", res);
       dispatch({
         type: GET_CONTENT_BY_ID,
         payload: {
@@ -53,7 +51,6 @@ export const postContent = (token, input) => (dispatch) => {
   axios
     .post(`api/admin/content`, input, config)
     .then((res) => {
-      console.log("coba", res);
       dispatch({
         type: POST_CONTENT,
         payload: res.data,
@@ -71,7 +68,6 @@ export const putContent = (token, input, id) => (dispatch) => {
   axios
     .put(`/api/admin/content/${id}`, input, config)
     .then((res) => {
-      console.log("put content =>", res);
       dispatch({
         type: PUT_CONTENT,
         payload: res,
@@ -89,7 +85,6 @@ export const deleteContent = (token, id) => (dispatch) => {
   axios
     .delete(`api/admin/content/${id}`, config)
     .then((res) => {
-      console.log("delete =>", res);
       dispatch({
         type: DELETE_CONTENT,
         payload: res,
@@ -106,7 +101,6 @@ export const getTracking = () => (dispatch) => {
   axios
     .get(`/api/tracking`, config)
     .then((res) => {
-      console.log("coba content by id =>", res);
       dispatch({
         type: GET_HISTORY_TRACKING,
         payload: res.data.data,

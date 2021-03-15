@@ -14,12 +14,6 @@ const Female = () => {
 
   const history = useHistory();
 
-  // console.log(scrollY);
-  console.log(
-    "ini content",
-    contents.filter((content) => content.gender === "male")
-  );
-
   return (
     <>
       {contents.length === 0 ? (

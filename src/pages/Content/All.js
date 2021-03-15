@@ -14,12 +14,8 @@ const All = () => {
 
   const history = useHistory();
 
-  // console.log(scrollY);
-  console.log("ini content", contents);
-
   return (
     <>
-      {/* <div className="content-container"> */}
       {contents.length === 0 ? (
         <h4>Loading...</h4>
       ) : (

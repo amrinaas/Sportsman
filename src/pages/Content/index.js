@@ -1,24 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
-// import "../../assets/css/footer-jumbotron.css";
 import Navbar from "../../components/Navbar1";
-import { useDispatch, useSelector } from "react-redux";
-// import playButton from "../../assets/img/button/play-button.png";
-// import testImg from "../../assets/img/jumbotron/aa.jpg";
-import {
-  TabContent,
-  TabPane,
-  Nav,
-  NavItem,
-  NavLink,
-  Card,
-  Button,
-  CardTitle,
-  CardText,
-  Row,
-  Col,
-} from "reactstrap";
-import { getContent } from "../../redux/Action/contentAction";
+import { TabContent, TabPane, Nav, NavItem, NavLink, Card } from "reactstrap";
 import classnames from "classnames";
 import All from "./All";
 import Female from "./Female";
@@ -28,15 +10,6 @@ const Content = () => {
   useEffect(() => {
     document.title = `Content`;
   });
-
-  // useEffect(() => {
-  //   window.addEventListener("scroll", handleScroll);
-  // });
-
-  // const [scrollY, setScrollY] = useState(0);
-  // const handleScroll = () => {
-  //   setScrollY(window.scrollY);
-  // };
 
   const [activeTab, setActiveTab] = useState("1");
 
@@ -99,21 +72,20 @@ const Content = () => {
               in the gym, you will not get the long lasting results you're
               looking for. I will give you individual nutritional guidance which
               :
-            
-            <ol>
-              <li>
-                - Doesn't require you to starve yourself or cut out carbs like a
-                lot of diets, causing your metabolism to slow right down and
-                make you feel tired and hungry all day long.
-              </li>
-              <li>
-                - Doesn't require eating broccoli all day - You'll still be able
-                to have the foods you enjoy.
-              </li>
-              <li>
-                - Doesn't require you to count calories or weigh your food.
-              </li>
-            </ol>
+              <ol>
+                <li>
+                  - Doesn't require you to starve yourself or cut out carbs like
+                  a lot of diets, causing your metabolism to slow right down and
+                  make you feel tired and hungry all day long.
+                </li>
+                <li>
+                  - Doesn't require eating broccoli all day - You'll still be
+                  able to have the foods you enjoy.
+                </li>
+                <li>
+                  - Doesn't require you to count calories or weigh your food.
+                </li>
+              </ol>
             </p>
           </Card>
           {/* <div className="tips-three"> */}

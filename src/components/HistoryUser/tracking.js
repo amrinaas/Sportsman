@@ -36,8 +36,6 @@ const Tracking = () => {
     setEnd(end);
   };
 
-  console.log("tracking =>", tracking);
-
   return (
     <>
       <MapContainer center={start} zoom={9} scrollWheelZoom={true}>

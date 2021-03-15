@@ -18,12 +18,6 @@ const Navbar = () => {
     window.location.reload(true);
   };
 
-  // const handleSignOut = () => {
-  // 	localStorage.removeItem('token');
-  // 	history.push('/');
-  // 	window.location.reload(true);
-  // };
-
   const token = localStorage.getItem("token");
 
   return (

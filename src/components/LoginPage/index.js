@@ -55,8 +55,6 @@ const LoginPage = () => {
     }
   }, [message]);
 
-  console.log("message =>", message);
-
   const handleChange = (e) => {
     setUserData({
       ...userData,

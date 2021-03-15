@@ -1,73 +1,59 @@
-// @import url("https://unpkg.com/leaflet@1.5.1/dist/leaflet.css");
 .bg-container {
   margin: 40px;
   display: flex;
   align-items: center;
-  background-color: #f26931;
+  background-color: #363636;
   margin-top: 100px;
-  // background-image: url(../../assets/img/logo/yoga.jpg);
-  // background-size: cover;
+  color: white;
 }
 
 .card2 {
   margin-top: 25px;
-  border: 5px solid rgb(10, 10, 10);
+  border: 5px solid rgb(255, 255, 255);
   border-radius: 20px;
   background-color: #f26931;
   align-items: center;
-  // background-color: rgba(54, 34, 184, 0.199);
   width: 325px;
   height: 325px;
   padding: 30px;
-  > p {
-    color: white;
-    font-family: cursive;
-  }
+  color: white;
 }
 
-// .sub {
-//   &__side {
-//     // width: 20%;
-//     display: flex;
-//     position: relative;
-//     padding: 40px;
-//     margin: auto;
-//     align-items: center;
-//   }
-
-.workout {
-  // background-image: url(../../assets/img/about/background-about.jpg);
-  background-size: cover;
-  height: 190vh;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex-wrap: wrap;
-  background-color: rgba($color: white, $alpha: 0.5);
-  &__content {
+.sub {
+  &__side {
     display: flex;
-    // flex-direction: column;
-    // align-items: center;
-    // flex-wrap: wrap;
-    background-color: rgba($color: white, $alpha: 0.5);
+    position: relative;
+    padding: 40px;
+    margin: auto;
+    align-items: center;
+  }
+
+  .workout {
+    background-size: cover;
+    height: 190vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: rgba($color: #f26931, $alpha: 0.5);
     &__content {
       display: flex;
-      // flex-direction: column;
-      // flex-wrap: wrap;
-      // align-items: center;
+      flex-direction: column;
+      align-items: center;
+      flex-wrap: wrap;
+      background-color: rgba($color: white, $alpha: 0.5);
       &__bottom {
-        // background-color: rgba($color: rgb(29, 25, 25), $alpha: 0.7);
         margin-top: 100px;
         display: flex;
-        // flex-direction: row;
+        flex-direction: row;
         align-items: center;
         background-color: white;
-
+        color: white;
         > h2 {
           font-weight: 700;
           align-items: center;
-          color: #f26931;
+          color: #ffffff;
         }
       }
       &__pict {
@@ -90,7 +76,6 @@
   & .history-tracking-data {
     width: 140px;
     height: 105px;
-    // background-color: yellow;
     border: 1px solid black;
     margin: 5px 5px;
     border-radius: 5px;
@@ -99,7 +84,6 @@
     & .date-tracking {
       font-size: 8px;
     }
-
     & p {
       font-size: 12px;
       margin: 5px 3px;
